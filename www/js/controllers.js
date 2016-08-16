@@ -1,8 +1,8 @@
-angular.module('starter.controllers', [])
+angular.module('app.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('ChatsCtrl', function($scope, Chats) {
+.controller('PlantsCtrl', function($scope, api, $http) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -11,14 +11,37 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
+  // $scope.plants = Plants.all();
+  // $scope.remove = function() {
+  //   Plants.remove(plant);
+  // };
+
+  $scope.load = function () {
+    api.get('a4:28:72:ca:55:13/last')
+    .success (function(response){
+        console.log (response);
+        $scope.plants = response.content;
+      })
+    .error (function(err) {
+        console.log (err);
+    });
   };
+
+  $scope.plants = [];
+  $scope.load();
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('PlantsAddCtrl', function($scope, api, $http) {
+  $scope.load = function () {
+    
+  };
+
+  $scope.plants = [];
+  $scope.load();
+})
+
+.controller('PlantsDetailCtrl', function($scope, $stateParams, Plants) {
+  $scope.plant = Plants.get($stateParams.plantId);
 })
 
 .controller('AccountCtrl', function($scope) {

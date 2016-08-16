@@ -6,12 +6,12 @@ angular.module('starter.services', [])
   // Some fake testing data
   var chats = [{
     id: 0,
-    name: 'Ben Sparrow',
+    name: 'Manjericão',
     lastText: 'You on your way?',
-    face: 'img/ben.png'
+    face: 'img/manjericc3a3o1.jpg'
   }, {
     id: 1,
-    name: 'Max Lynx',
+    name: 'Hortelã',
     lastText: 'Hey, it\'s me',
     face: 'img/max.png'
   }, {
