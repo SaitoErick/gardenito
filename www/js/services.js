@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('app.services', [])
 
 .factory('Plants', function() {
   // Might use a resource here that returns a JSON array
@@ -14,7 +14,7 @@ angular.module('starter.services', [])
       humi: 45,
       lumi: 40
     }
-  }, 
+  },
   {
     id: 1,
     name: 'Hortelã',

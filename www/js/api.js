@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('starter').service('api', function($http) {
+angular.module('app')
+
+.service('api', function($http) {
     var url_servico = 'http://api.iot.ciandt.com/v2/data/';
     var api={};
 
@@ -13,5 +15,7 @@ angular.module('starter').service('api', function($http) {
         route=url_servico + route;
         return $http.post(route,params);
     };
+
+    return api;
 
 });

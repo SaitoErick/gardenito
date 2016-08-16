@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('app.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
@@ -20,14 +20,14 @@ angular.module('starter.controllers', [])
     api.get('a4:28:72:ca:55:13/last')
     .success (function(response){
         console.log (response);
-        $scope.plantas = response.content;
+        $scope.plants = response.content;
       })
     .error (function(err) {
         console.log (err);
     });
   };
 
-  $scope.plantas = [];
+  $scope.plants = [];
   $scope.load();
 })
 
