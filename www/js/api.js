@@ -3,7 +3,7 @@
 angular.module('app')
 
 .service('api', function($http) {
-    var url_servico = 'http://api.iot.ciandt.com/v2/data/';
+    var url_servico = 'https://cit-gardenito.appspot.com/_ah/api/';
     var api={};
 
     api.get = function(route,params) {
