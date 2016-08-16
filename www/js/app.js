@@ -68,6 +68,15 @@ angular.module('app', ['ionic', 'app.controllers'])
         }
       }
     })
+    .state('tab.plants-add', {
+      url: '/plants/add',
+      views: {
+        'tab-plants': {
+          templateUrl: 'templates/plants-add.html',
+          controller: 'PlantsAddCtrl'
+        }
+      }
+    })
 
   .state('tab.account', {
     url: '/account',

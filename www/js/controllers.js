@@ -31,6 +31,15 @@ angular.module('app.controllers', [])
   $scope.load();
 })
 
+.controller('PlantsAddCtrl', function($scope, api, $http) {
+  $scope.load = function () {
+    
+  };
+
+  $scope.plants = [];
+  $scope.load();
+})
+
 .controller('PlantsDetailCtrl', function($scope, $stateParams, Plants) {
   $scope.plant = Plants.get($stateParams.plantId);
 })
