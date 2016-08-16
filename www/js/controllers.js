@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('app.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
@@ -17,22 +17,38 @@ angular.module('starter.controllers', [])
   // };
 
   $scope.load = function () {
-    api.get('a4:28:72:ca:55:13/last')
+    api.get('planta/v1/list')
     .success (function(response){
         console.log (response);
-        $scope.plantas = response.content;
+        $scope.plants = response.items;
       })
     .error (function(err) {
         console.log (err);
     });
   };
 
-  $scope.plantas = [];
+  $scope.plants = [];
   $scope.load();
 })
 
-.controller('PlantsDetailCtrl', function($scope, $stateParams, Plants) {
-  $scope.plant = Plants.get($stateParams.plantId);
+.controller('PlantsAddCtrl', function($scope, api, $http) {
+  $scope.load = function () {
+    
+  };
+
+  $scope.plants = [];
+  $scope.load();
+})
+
+.controller('PlantsDetailCtrl', function($scope, $stateParams, api) {
+  api.get('planta/v1/get/' + $stateParams.plantId)
+    .success (function(response){
+        console.log (response);
+        $scope.plant = response;
+      })
+    .error (function(err) {
+        console.log (err);
+    });
 })
 
 .controller('AccountCtrl', function($scope) {
