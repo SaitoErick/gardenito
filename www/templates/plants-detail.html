@@ -6,18 +6,38 @@
 -->
 <ion-view view-title="{{plant.nome}}">
   <ion-content class="padding">
-    <h2>{{plant.nome}}</h2>
-    <img ng-src="{{plant.foto.value}}" style="width: 64px; height: 64px">
-    <p>
-      Data: {{plant.dados[0].ultima_data | date : "dd/MM/yyyy HH:mm"}}
-    </p><p>
-      Humidade do ar: {{plant.dados[0].humidade_ar}}
-    </p><p>
-      Humidade do solo: {{plant.dados[0].humidade_solo}}
-    </p><p>
-      Luminosidade: {{plant.dados[0].luminosidade}}
-    </p><p>
-      Temperatura: {{plant.dados[0].temperatura}}
-    </p>
+    <div class="list card">
+
+      <div class="item item-avatar">
+        <img ng-src="{{plant.foto.value}}" style="width: 64px; height: 64px">
+        <h2>{{plant.nome}}</h2>
+        <p><b>Localização:</b> {{plant.localizacao}}</p>
+        <p><b>Cadastro:</b> {{plant.dataCadastro | date : "dd/MM/yyyy"}}</p>
+        <p><b>Descrição:</b> {{plant.descricao}}</p>
+        <p><b>Ativa:</b> {{plant.ativa}}</p>
+      </div>
+    </div>
+    <div class="list card" ng-repeat="dado in plant.dados">
+      <div class="item item-divider">
+        {{dado.ultima_data | date : "dd/MM/yyyy HH:mm"}}
+      </div>
+      <div class="item item-icon-left">
+        <i class="icon ion-ios-rainy"></i>
+        Humidade do ar: {{dado.humidade_ar}}%
+      </div>
+      <div class="item item-icon-left">
+        <i class="icon ion-waterdrop"></i>
+        Humidade do solo: {{dado.humidade_solo}}%
+      </div>
+      <div class="item item-icon-left">
+        <i class="icon ion-ios-sunny-outline"></i>
+        Luminosidade: {{dado.luminosidade}}L
+      </div>
+      <div class="item item-icon-left">
+        <i class="icon ion-thermometer"></i>
+        Temperatura: {{dado.temperatura}}oC
+      </div>
+    </div>
+
   </ion-content>
 </ion-view>
