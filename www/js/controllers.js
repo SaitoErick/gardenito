@@ -51,8 +51,47 @@ angular.module('app.controllers', [])
     });
 })
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
+.controller('AddCtrl', function($scope, $ionicLoading, $state, $stateParams, api, $ionicPopup) {
+  $scope.dados = { "ativa": true};
+  //$scope.dados.ativa = true;
+
+  $scope.adicionar = function(dados) {
+
+    //Recupera os dados do formulário digitado
+    var planta = {
+      "nome": dados.nome,
+      "descricao": dados.descricao,
+      "localizacao": dados.localizacao,
+      "dataCadastro": dados.dataCadastro,
+      "foto": {
+        "value": dados.foto
+      },
+      "ativa": dados.ativa
+    };
+
+    console.log("Dados do formulário: ");
+    console.log(planta);
+
+    api.post('planta/v1/new', planta)
+      .success (function(response){
+          console.log (response);
+          var alerta = $ionicPopup.alert({
+            title: 'Maravilha',
+            template: 'Tudo certo! Cadastro realizado!'
+          });
+
+          alerta.then(function(res) {
+            $state.go('tab.plants');
+          });
+        })
+      .error (function(err) {
+        $ionicPopup.alert({
+          title: 'Oops',
+          template: 'Macacos me mordam! Algo saiu errado!'
+        });
+        console.log (err);
+      });
+
   };
+
 });

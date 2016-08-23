@@ -4,6 +4,8 @@ import com.google.appengine.api.datastore.Text;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Ignore;
+
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,6 +17,10 @@ public class Planta {
     @Id
     private Long id;
     private String nome;
+    private String localizacao;
+    private Date dataCadastro;
+    private String descricao;
+    private Boolean ativa;
     private Text foto;
     @Ignore
     private List<PlantaDados> dados;
@@ -57,5 +63,37 @@ public class Planta {
 
     public void setDados(List<PlantaDados> dados) {
         this.dados = dados;
+    }
+
+    public String getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
+    }
+
+    public Date getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(Date dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Boolean getAtiva() {
+        return ativa;
+    }
+
+    public void setAtiva(Boolean ativa) {
+        this.ativa = ativa;
     }
 }

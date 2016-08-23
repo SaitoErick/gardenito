@@ -1,10 +1,40 @@
-<ion-view view-title="Account">
+<ion-view view-title="Adicionar planta">
   <ion-content>
-    <ion-list>
-      <ion-item>
-      <ion-label fixed>Username</ion-label>
-      <ion-input type="text" value=""></ion-input>
-    </ion-item>
-    </ion-list>
+    <div class="list list-inset">
+      <form>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Nome da planta</span>
+          <input id="nome" type="text" placeholder="Nome da planta" ng-model="dados.nome">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Descrição</span>
+          <textarea id="descricao" cols="5" rows="4" placeholder="Descrição" ng-model="dados.descricao"></textarea>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Localização da planta</span>
+          <input id="localizacao" type="text" placeholder="Localização da planta" ng-model="dados.localizacao">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Caminho da foto</span>
+          <input id="foto" type="text" placeholder="Caminho da foto" ng-model="dados.foto">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Data de cadastro</span>
+          <input id="dataCadastro" type="date" placeholder="Data de cadastro" ng-model="dados.dataCadastro">
+        </label>
+        <label class="item item-toggle">
+          Cadastro ativo?
+          <label class="toggle toggle-assertive">
+            <input id="ativa" type="checkbox" ng-model="dados.ativa" checked>
+            <div class="track">
+              <div class="handle"></div>
+            </div>
+          </label>
+        </label>
+        <button class="button button-full button-positive" ng-click="adicionar(dados)">
+          <i class="icon ion-plus"></i>&nbsp;&nbsp;Cadastrar
+        </button>
+      </form>
+    </div>
   </ion-content>
 </ion-view>
