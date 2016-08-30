@@ -52,6 +52,7 @@ angular.module('app', ['ionic', 'app.controllers'])
 
   .state('tab.plants', {
       url: '/plants',
+      params: {reload: null},
       views: {
         'tab-plants': {
           templateUrl: 'templates/tab-plants.html',
@@ -68,18 +69,10 @@ angular.module('app', ['ionic', 'app.controllers'])
         }
       }
     })
-    .state('tab.plants-add', {
-      url: '/plants/add',
-      views: {
-        'tab-plants': {
-          templateUrl: 'templates/plants-add.html',
-          controller: 'PlantsAddCtrl'
-        }
-      }
-    })
 
   .state('tab.add', {
     url: '/add',
+    params: {plantId: null},
     views: {
       'tab-add': {
         templateUrl: 'templates/plants-add.html',
@@ -90,5 +83,14 @@ angular.module('app', ['ionic', 'app.controllers'])
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/plants');
-
+})
+.directive("formatDate", function() {
+  return {
+   require: 'ngModel',
+    link: function(scope, elem, attr, modelCtrl) {
+      modelCtrl.$formatters.push(function(modelValue){
+        return new Date(modelValue);
+      })
+    }
+  }
 });

@@ -4,35 +4,35 @@
       <form>
         <label class="item item-input item-floating-label">
           <span class="input-label">Nome da planta</span>
-          <input id="nome" type="text" placeholder="Nome da planta" ng-model="dados.nome">
+          <input id="nome" type="text" placeholder="Nome da planta" ng-model="plant.nome">
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Descrição</span>
-          <textarea id="descricao" cols="5" rows="4" placeholder="Descrição" ng-model="dados.descricao"></textarea>
+          <textarea id="descricao" cols="5" rows="4" placeholder="Descrição" ng-model="plant.descricao"></textarea>
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Localização da planta</span>
-          <input id="localizacao" type="text" placeholder="Localização da planta" ng-model="dados.localizacao">
+          <input id="localizacao" type="text" placeholder="Localização da planta" ng-model="plant.localizacao">
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Caminho da foto</span>
-          <input id="foto" type="text" placeholder="Caminho da foto" ng-model="dados.foto">
+          <input id="foto" type="text" placeholder="Caminho da foto" ng-model="plant.foto.value">
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Data de cadastro</span>
-          <input id="dataCadastro" type="date" placeholder="Data de cadastro" ng-model="dados.dataCadastro">
+          <input id="dataCadastro" type="date" placeholder="Data de cadastro" ng-model="plant.dataCadastro" format-date>
         </label>
         <label class="item item-toggle">
           Cadastro ativo?
           <label class="toggle toggle-assertive">
-            <input id="ativa" type="checkbox" ng-model="dados.ativa" checked>
+            <input id="ativa" type="checkbox" ng-model="plant.ativa" checked>
             <div class="track">
               <div class="handle"></div>
             </div>
           </label>
         </label>
-        <button class="button button-full button-positive" ng-click="adicionar(dados)">
-          <i class="icon ion-plus"></i>&nbsp;&nbsp;Cadastrar
+        <button id="btn-gravar" class="button button-full button-positive" ng-click="gravar(plant)">
+          <i class="icon ion-plus"></i>&nbsp;&nbsp;Gravar
         </button>
       </form>
     </div>
