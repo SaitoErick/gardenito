@@ -63,6 +63,9 @@
 		EAC4E1B9FF474700B7E88903 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C45C9115084095A480A62E /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		0B920DB43F1B4058ABA3CC85 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97ECA18B3D24A679DC2C908 /* CoreLocation.framework */; };
 		A121EBE1399145599BB9C688 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA71E108B6684867A9C0D918 /* AVFoundation.framework */; };
+		E3F3004CDC6C46398B1F5ABB /* ImageResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA7B9CB96B6426A8510AB42 /* ImageResize.m */; };
+		423DDC66C3C849F0A6F8A8E2 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D52EBB9CE7F47FE88AE4997 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		36289E73D2214413ADA287BE /* UIImage+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1D7F5B43B4237A1AD8972 /* UIImage+Scale.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +172,12 @@
 		54C45C9115084095A480A62E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "ImageIO.framework"; path = "System/Library/Frameworks/ImageIO.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		A97ECA18B3D24A679DC2C908 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		FA71E108B6684867A9C0D918 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AVFoundation.framework"; path = "System/Library/Frameworks/AVFoundation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		6AA7B9CB96B6426A8510AB42 /* ImageResize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "ImageResize.m"; path = "cordova-plugin-image-resizer/ImageResize.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		9D52EBB9CE7F47FE88AE4997 /* NSData+Base64.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "cordova-plugin-image-resizer/NSData+Base64.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		29B1D7F5B43B4237A1AD8972 /* UIImage+Scale.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Scale.m"; path = "cordova-plugin-image-resizer/UIImage+Scale.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		BE7CAD0306E44BACB990CA37 /* ImageResize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ImageResize.h"; path = "cordova-plugin-image-resizer/ImageResize.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		4540A8EC56F24D40A59710DE /* NSData+Base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "cordova-plugin-image-resizer/NSData+Base64.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		6EDCDF2384F145C0924D7A1F /* UIImage+Scale.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIImage+Scale.h"; path = "cordova-plugin-image-resizer/UIImage+Scale.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +323,12 @@
 				D969CFE046DC45ABAF6C0F3A /* CDVCamera.h */,
 				3F9B237DBE404896812AE650 /* CDVJpegHeaderWriter.h */,
 				1FF69623D6DA407B9D9E3BC4 /* CDVExif.h */,
+				6AA7B9CB96B6426A8510AB42 /* ImageResize.m */,
+				9D52EBB9CE7F47FE88AE4997 /* NSData+Base64.m */,
+				29B1D7F5B43B4237A1AD8972 /* UIImage+Scale.m */,
+				BE7CAD0306E44BACB990CA37 /* ImageResize.h */,
+				4540A8EC56F24D40A59710DE /* NSData+Base64.h */,
+				6EDCDF2384F145C0924D7A1F /* UIImage+Scale.h */,
 			);
 			name = Plugins;
 			path = "Gardenito-app/Plugins";
@@ -487,7 +502,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cordova/lib/copy-www-build-step.sh";
+			shellScript = "NODEJS_PATH=/usr/local/bin; NVM_NODE_PATH=~/.nvm/versions/node/`nvm version 2>/dev/null`/bin; N_NODE_PATH=`find /usr/local/n/versions/node/* -maxdepth 0 -type d 2>/dev/null | tail -1`/bin; XCODE_NODE_PATH=`xcode-select --print-path`/usr/share/xcs/Node/bin; PATH=$NODEJS_PATH:$NVM_NODE_PATH:$N_NODE_PATH:$XCODE_NODE_PATH:$PATH && node cordova/lib/copy-www-build-step.js";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -516,6 +531,9 @@
 				395FDD7DABD54375A42B0BDF /* UIImage+CropScaleOrientation.m in Sources */,
 				658D1B8C3BBE48FCAA47B622 /* CDVCamera.m in Sources */,
 				A57AAADB6E64494D91747009 /* CDVJpegHeaderWriter.m in Sources */,
+				E3F3004CDC6C46398B1F5ABB /* ImageResize.m in Sources */,
+				423DDC66C3C849F0A6F8A8E2 /* NSData+Base64.m in Sources */,
+				36289E73D2214413ADA287BE /* UIImage+Scale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

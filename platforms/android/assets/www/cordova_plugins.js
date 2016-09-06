@@ -151,6 +151,20 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/com-badrit-base64/www/Base64.js",
+        "id": "com-badrit-base64.Base64",
+        "clobbers": [
+            "navigator.Base64"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-image-resizer/www/imageresize.js",
+        "id": "cordova-plugin-image-resizer.ImageResizePlugin",
+        "clobbers": [
+            "plugins.imageResizer"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
         "id": "cordova-plugin-file.DirectoryEntry",
         "clobbers": [
@@ -315,6 +329,8 @@ module.exports.metadata =
     "cordova-plugin-media": "2.3.0",
     "cordova-plugin-media-capture": "1.3.0",
     "cordova-plugin-camera": "2.2.0",
+    "com-badrit-base64": "0.2.0",
+    "cordova-plugin-image-resizer": "1.0.0",
     "cordova-plugin-compat": "1.0.0",
     "cordova-plugin-file": "4.2.0"
 }
