@@ -24,7 +24,7 @@ angular.module('app.controllers', [])
       $state.go('tab.add', { plantId: plant.id });
     });
   };
-  
+
   $scope.remove = function(plant) {
     var confirmPopup = $ionicPopup.confirm({
       title: 'Excluir',
@@ -42,7 +42,7 @@ angular.module('app.controllers', [])
             console.log (err);
         });
       }
-    });     
+    });
   };
 
   $scope.load = function () {
@@ -70,7 +70,7 @@ angular.module('app.controllers', [])
 
 // .controller('PlantsAddCtrl', function($scope, api, $http) {
 //   $scope.load = function () {
-    
+
 //   };
 
 //   $scope.plants = [];
@@ -89,14 +89,14 @@ angular.module('app.controllers', [])
 })
 
 .controller('AddCtrl', function($scope, $ionicLoading, $state, $stateParams, api, $ionicPopup, $filter) {
-  
+
   $scope.$on('$ionicView.enter', function(e) {
-    $scope.plant = { "ativa": true };
+    $scope.plant = { "ativa": true , "dataCadastro": new Date()};
 
     console.log("Plant ID: ");
     console.log($stateParams.plantId);
 
-    if($stateParams.plantId !== null) {
+    if($stateParams.plantId != null) {
       //Carrega os dados e preenche os campos
       api.get('planta/v1/get/' + $stateParams.plantId)
       .success (function(response){
@@ -107,17 +107,28 @@ angular.module('app.controllers', [])
           console.log (err);
       });
     } else {
-      $scope.plant = { "ativa": true };
+      $scope.plant = { "ativa": true , "dataCadastro": new Date()};
     }
 
-    $scope.$watch('plant.dataCadastro', function (newValue) {
-      $scope.plant.dataCadastro = $filter('date')(newValue, 'dd/MM/yyyy HH:mm:ss'); 
-    });
+    // $scope.$watch('plant.dataCadastro', function (newValue) {
+    //   $scope.plant.dataCadastro = $filter('date')(newValue, 'dd/MM/yyyy HH:mm:ss');
+    // });
   });
 
   $scope.gravar = function(plant) {
     //Recupera os dados do formulário digitado
     var planta = {};
+    console.log (plant);
+    if(typeof (plant.nome) == "undefined" ||
+      typeof (plant.descricao) == "undefined" ||
+      typeof (plant.localizacao) == "undefined" ||
+      typeof (plant.localizacao) == "undefined" ||
+      typeof (plant.foto) == "undefined"){
+        var alerta = $ionicPopup.alert({
+          title: 'Oops',
+          template: 'Macacos me mordam! Algo saiu errado!'
+        });
+      }
 
     if(plant.id != null) {
       planta = {
