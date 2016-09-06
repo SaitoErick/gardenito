@@ -51,6 +51,14 @@
                         {
                             "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Base64\"><param name=\"android-package\" value=\"com.badrit.Base64.Base64Plugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"ImageResizePlugin\"><param name=\"android-package\" value=\"com.raananw.ImageResizePlugin\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -116,6 +124,12 @@
             "PACKAGE_NAME": "com.ionicframework.gardenito741319"
         },
         "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+        },
+        "com-badrit-base64": {
+            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+        },
+        "cordova-plugin-image-resizer": {
             "PACKAGE_NAME": "com.ionicframework.gardenito741319"
         }
     },

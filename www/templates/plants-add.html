@@ -14,10 +14,6 @@
           <span class="input-label">Localização da planta</span>
           <input id="localizacao" type="text" placeholder="Localização da planta" ng-model="plant.localizacao">
         </label>
-        <label class="item item-input item-floating-label">
-          <span class="input-label">Caminho da foto</span>
-          <input id="foto" type="text" placeholder="Caminho da foto" ng-model="plant.foto.value">
-        </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Data de cadastro</span>
           <input id="dataCadastro" type="date" placeholder="Data de cadastro" ng-model="plant.dataCadastro" format-date>
@@ -30,6 +26,14 @@
               <div class="handle"></div>
             </div>
           </label>
+        </label>
+        <label class="item item-input item-stacked-label centro">
+          <span class="input-label">Imagem da planta</span>
+          <!--<input id="foto" type="text" placeholder="Caminho da foto" ng-model="plant.foto.value">-->
+          <div id="camera-button-wrapper" class="camera-button-wrapper" ng-click="tirarFoto()">
+              <img id="img-camera" border="0" />
+              <input type="hidden" id="image-path" ng-model="plant.foto.value" />
+          </div>
         </label>
         <button id="btn-gravar" class="button button-full button-positive" ng-click="gravar(plant)">
           <i class="icon ion-plus"></i>&nbsp;&nbsp;Gravar

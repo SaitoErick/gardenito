@@ -114,6 +114,60 @@ angular.module('app.controllers', [])
     //   $scope.plant.dataCadastro = $filter('date')(newValue, 'dd/MM/yyyy HH:mm:ss');
     // });
   });
+  
+  $scope.tirarFoto = function() {
+    console.log("Entrou camera");
+    navigator.camera.getPicture(function(imagedata) { 
+      
+      if(typeof(imagedata) !== "undefined" && imagedata !== "") {
+        window.plugins.imageResizer.resizeImage(
+                function(data) { 
+                  
+                  $('#img-camera').attr("src", "data:image/jpeg;base64," + data.imageData);
+                  $scope.plant.foto.value = data.imageData;
+
+                }, function (error) {
+                    $ionicPopup.alert({
+                      title: 'Oops',
+                      template: 'Erro ao redimensionar imagem : \r\n' + error
+                    });
+
+                    $('#img-camera').attr("src", "");
+                    $("#btn-gravar").addClass("disabled");
+                    $scope.plant.foto.value = "";
+                    $("#image-path").val("");
+
+                }, imagedata, 800, 0, {
+                  resizeType: ImageResizer.RESIZE_TYPE_MAX_PIXEL,
+                  imageDataType: ImageResizer.IMAGE_DATA_TYPE_URL,
+                  format: ImageResizer.FORMAT_JPG,
+                  quality: 70
+                }
+            );
+      }
+
+    }, 
+    function (message) { 
+      $ionicPopup.alert({
+        title: 'Oops',
+        template: 'Ocorreu um erro ao tentar tirar a foto!'
+      });
+
+      $('#img-camera').attr("src", "");
+      $("#btn-gravar").addClass("disabled");
+      $scope.plant.foto.value = "";
+      $("#image-path").val("");
+    }, 
+    { 
+        quality: 90,
+        destinationType: Camera.DestinationType.FILE_URI,
+        sourceType : Camera.PictureSourceType.CAMERA,
+        encodingType: Camera.EncodingType.JPEG,
+        targetWidth: 1600,
+        targetHeight: 1200,
+        cameraDirection: Camera.Direction.BACK
+    });
+  };
 
   $scope.gravar = function(plant) {
     //Recupera os dados do formulário digitado

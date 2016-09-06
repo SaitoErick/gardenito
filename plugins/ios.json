@@ -51,6 +51,10 @@
                         {
                             "xml": "<preference name=\"CameraUsesGeolocation\" value=\"false\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"ImageResizePlugin\"><param name=\"ios-package\" value=\"ImageResize\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -154,6 +158,12 @@
             "PACKAGE_NAME": "com.ionicframework.gardenito741319"
         },
         "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+        },
+        "com-badrit-base64": {
+            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+        },
+        "cordova-plugin-image-resizer": {
             "PACKAGE_NAME": "com.ionicframework.gardenito741319"
         }
     },
