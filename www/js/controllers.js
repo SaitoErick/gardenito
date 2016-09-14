@@ -122,17 +122,18 @@ angular.module('app.controllers', [])
       if(typeof(imagedata) !== "undefined" && imagedata !== "") {
         window.plugins.imageResizer.resizeImage(
                 function(data) { 
-                  
                   $('#img-camera').attr("src", "data:image/jpeg;base64," + data.imageData);
-                  $scope.plant.foto.value = data.imageData;
+                  $scope.plant.foto.value = "data:image/jpeg;base64," + data.imageData;
+                  $("#btn-gravar").removeClass("disabled");
 
-                }, function (error) {
+                }, 
+                function (error) {
                     $ionicPopup.alert({
                       title: 'Oops',
                       template: 'Erro ao redimensionar imagem : \r\n' + error
                     });
 
-                    $('#img-camera').attr("src", "");
+                    $('#img-camera').prop("src", "");
                     $("#btn-gravar").addClass("disabled");
                     $scope.plant.foto.value = "";
                     $("#image-path").val("");
@@ -147,13 +148,8 @@ angular.module('app.controllers', [])
       }
 
     }, 
-    function (message) { 
-      $ionicPopup.alert({
-        title: 'Oops',
-        template: 'Ocorreu um erro ao tentar tirar a foto!'
-      });
-
-      $('#img-camera').attr("src", "");
+    function (message) {
+      $('#img-camera').prop("src", "");
       $("#btn-gravar").addClass("disabled");
       $scope.plant.foto.value = "";
       $("#image-path").val("");
