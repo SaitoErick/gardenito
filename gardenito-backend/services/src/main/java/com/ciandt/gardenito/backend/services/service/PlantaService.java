@@ -2,8 +2,10 @@ package com.ciandt.gardenito.backend.services.service;
 
 import com.ciandt.gardenito.backend.services.dao.PlantaDadosDao;
 import com.ciandt.gardenito.backend.services.dao.PlantaDao;
+import com.ciandt.gardenito.backend.services.dao.PlantaParametrosDao;
 import com.ciandt.gardenito.backend.services.entity.Planta;
 import com.ciandt.gardenito.backend.services.entity.PlantaDados;
+import com.ciandt.gardenito.backend.services.entity.PlantaParametros;
 import com.google.api.server.spi.response.ConflictException;
 import com.google.api.server.spi.response.NotFoundException;
 
@@ -16,20 +18,28 @@ public class PlantaService {
 
     private PlantaDao plantaDao;
     private PlantaDadosDao plantaDadosDao;
+    private PlantaParametrosDao plantaParametrosDao;
 
     public PlantaService() {
         plantaDao = new PlantaDao();
         plantaDadosDao = new PlantaDadosDao();
+        plantaParametrosDao = new PlantaParametrosDao();
     }
 
     public List<Planta> list() {
         List<Planta> list = plantaDao.listAll();
 
         for (Planta planta : list) {
-            List<PlantaDados> dados = plantaDadosDao.listByProperty("idPlanta", planta.getId());
+            List<PlantaDados> dados = plantaDadosDao.listByProperty("idPlanta", planta.getId(), 10);
 
             if(dados != null) {
                 planta.setDados(dados);
+            }
+
+            PlantaParametros parametros = plantaParametrosDao.getByProperty("idPlanta", planta.getId());
+
+            if(parametros != null) {
+                planta.setParametros(parametros);
             }
         }
 
@@ -44,10 +54,16 @@ public class PlantaService {
         }
 
         for (Planta planta : list) {
-            List<PlantaDados> dados = plantaDadosDao.listByProperty("idPlanta", planta.getId());
+            List<PlantaDados> dados = plantaDadosDao.listByProperty("idPlanta", planta.getId(), 10);
 
             if(dados != null) {
                 planta.setDados(dados);
+            }
+
+            PlantaParametros parametros = plantaParametrosDao.getByProperty("idPlanta", planta.getId());
+
+            if(parametros != null) {
+                planta.setParametros(parametros);
             }
         }
 
@@ -61,10 +77,16 @@ public class PlantaService {
             throw new NotFoundException("Planta não encontrada");
         }
 
-        List<PlantaDados> dados = plantaDadosDao.listByProperty("idPlanta", id);
+        List<PlantaDados> dados = plantaDadosDao.listByProperty("idPlanta", id, 10);
 
         if(dados != null) {
             item.setDados(dados);
+        }
+
+        PlantaParametros parametros = plantaParametrosDao.getByProperty("idPlanta", id);
+
+        if(parametros != null) {
+            item.setParametros(parametros);
         }
 
         return item;

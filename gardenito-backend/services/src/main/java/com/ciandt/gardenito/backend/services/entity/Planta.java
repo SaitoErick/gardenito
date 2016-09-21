@@ -24,6 +24,8 @@ public class Planta {
     private Text foto;
     @Ignore
     private List<PlantaDados> dados;
+    @Ignore
+    private PlantaParametros parametros;
 
     public Planta() {
     }
@@ -95,5 +97,13 @@ public class Planta {
 
     public void setAtiva(Boolean ativa) {
         this.ativa = ativa;
+    }
+
+    public PlantaParametros getParametros() {
+        return parametros;
+    }
+
+    public void setParametros(PlantaParametros parametros) {
+        this.parametros = parametros;
     }
 }

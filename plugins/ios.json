@@ -53,6 +53,10 @@
                         {
                             "xml": true,
                             "count": 1
+                        },
+                        {
+                            "xml": false,
+                            "count": 1
                         }
                     ],
                     "CoreTelephony.framework": [
@@ -117,6 +121,10 @@
                         {
                             "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"OneSignalPush\"><param name=\"ios-package\" value=\"OneSignalPush\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -128,6 +136,12 @@
                             "xml": "<string />",
                             "count": 1
                         }
+                    ],
+                    "UIBackgroundModes": [
+                        {
+                            "xml": "<array><string>remote-notification</string></array>",
+                            "count": 1
+                        }
                     ]
                 }
             }
@@ -135,51 +149,54 @@
     },
     "installed_plugins": {
         "com-badrit-base64": {
-            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+            "PACKAGE_NAME": "com.ciandt.enterprise.prototype.gardenito"
         },
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+            "PACKAGE_NAME": "com.ciandt.enterprise.prototype.gardenito"
         },
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+            "PACKAGE_NAME": "com.ciandt.enterprise.prototype.gardenito"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+            "PACKAGE_NAME": "com.ciandt.enterprise.prototype.gardenito"
         },
         "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+            "PACKAGE_NAME": "com.ciandt.enterprise.prototype.gardenito"
         },
         "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+            "PACKAGE_NAME": "com.ciandt.enterprise.prototype.gardenito"
         },
         "cordova-plugin-image-resizer": {
-            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+            "PACKAGE_NAME": "com.ciandt.enterprise.prototype.gardenito"
         },
         "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+            "PACKAGE_NAME": "com.ciandt.enterprise.prototype.gardenito"
         },
         "cordova-plugin-media": {
-            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+            "PACKAGE_NAME": "com.ciandt.enterprise.prototype.gardenito"
         },
         "cordova-plugin-media-capture": {
-            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+            "PACKAGE_NAME": "com.ciandt.enterprise.prototype.gardenito"
         },
         "cordova-plugin-network-information": {
-            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+            "PACKAGE_NAME": "com.ciandt.enterprise.prototype.gardenito"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+            "PACKAGE_NAME": "com.ciandt.enterprise.prototype.gardenito"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+            "PACKAGE_NAME": "com.ciandt.enterprise.prototype.gardenito"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+            "PACKAGE_NAME": "com.ciandt.enterprise.prototype.gardenito"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.ciandt.enterprise.prototype.gardenito"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.ionicframework.gardenito741319"
+            "PACKAGE_NAME": "com.ciandt.enterprise.prototype.gardenito"
         }
     }
 }

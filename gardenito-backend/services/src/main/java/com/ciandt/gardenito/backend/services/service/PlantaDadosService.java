@@ -4,6 +4,8 @@ import com.ciandt.gardenito.backend.services.dao.PlantaDadosDao;
 import com.ciandt.gardenito.backend.services.dao.PlantaDadosDao;
 import com.ciandt.gardenito.backend.services.entity.Planta;
 import com.ciandt.gardenito.backend.services.entity.PlantaDados;
+import com.ciandt.gardenito.backend.services.helpers.OneSignalHelper;
+import com.ciandt.gardenito.backend.services.util.Params;
 import com.google.api.server.spi.response.ConflictException;
 import com.google.api.server.spi.response.NotFoundException;
 
@@ -15,9 +17,11 @@ import java.util.List;
 public class PlantaDadosService {
 
     private PlantaDadosDao plantaDadosDao;
+    private OneSignalHelper oneSignalHelper;
 
     public PlantaDadosService() {
         plantaDadosDao = new PlantaDadosDao();
+        oneSignalHelper = new OneSignalHelper();
     }
 
     public List<PlantaDados> list() {
@@ -54,12 +58,10 @@ public class PlantaDadosService {
             throw new ConflictException("ID da planta não informado.");
         }
 
-//        PlantaDados u = plantaDadosDao.getByProperty("nome", item.getNome());
-//
-//        if(u != null)
-//        {
-//            throw new ConflictException("Planta já cadastrada: " + u.getNome());
-//        }
+        item = plantaDadosDao.insert(item);
+
+        //TODO: Envia uma notificação de Push de teste. Em algum momento, precisa verificar os parametros e só enviar se estiver fora do estiulado.
+        oneSignalHelper.SendPush("{\"teste\":\"ok\"}", Params.getInstance().getMensagemParametros(), null);
 
         return plantaDadosDao.insert(item);
     }
@@ -79,13 +81,6 @@ public class PlantaDadosService {
         if(u == null) {
             throw new NotFoundException("Dados da Planta não encontrados");
         }
-
-//        u = plantaDadosDao.getByProperty("nome", item.getNome());
-//
-//        if(u != null && !u.getId().equals(item.getId()))
-//        {
-//            throw new ConflictException("Nome da planta ja cadastrada: " + u.getNome());
-//        }
 
         plantaDadosDao.update(item);
     }
