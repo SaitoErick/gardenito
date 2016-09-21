@@ -71,4 +71,7 @@
     <feature name="ImageResizePlugin">
         <param name="android-package" value="com.raananw.ImageResizePlugin" />
     </feature>
+    <feature name="OneSignalPush">
+        <param name="android-package" value="com.plugin.gcm.OneSignalPush" />
+    </feature>
 </widget>

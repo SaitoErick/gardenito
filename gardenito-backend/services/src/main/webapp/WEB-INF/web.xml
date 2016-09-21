@@ -5,7 +5,11 @@
         <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
         <init-param>
             <param-name>services</param-name>
-            <param-value>com.ciandt.gardenito.backend.services.endpoint.PlantaEndpoint, com.ciandt.gardenito.backend.services.endpoint.PlantaDadosEndpoint</param-value>
+            <param-value>
+                com.ciandt.gardenito.backend.services.endpoint.PlantaEndpoint,
+                com.ciandt.gardenito.backend.services.endpoint.PlantaDadosEndpoint,
+                com.ciandt.gardenito.backend.services.endpoint.PlantaParametrosEndpoint
+            </param-value>
         </init-param>
     </servlet>
     <servlet-mapping>

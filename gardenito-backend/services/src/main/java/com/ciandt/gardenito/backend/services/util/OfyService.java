@@ -2,6 +2,7 @@ package com.ciandt.gardenito.backend.services.util;
 
 import com.ciandt.gardenito.backend.services.entity.Planta;
 import com.ciandt.gardenito.backend.services.entity.PlantaDados;
+import com.ciandt.gardenito.backend.services.entity.PlantaParametros;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyFactory;
 import com.googlecode.objectify.ObjectifyService;
@@ -14,6 +15,7 @@ public class OfyService {
     static {
         ObjectifyService.register(Planta.class);
         ObjectifyService.register(PlantaDados.class);
+        ObjectifyService.register(PlantaParametros.class);
     }
 
     public static Objectify ofy() {

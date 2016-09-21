@@ -83,10 +83,16 @@ public class GenericDao<T> implements IGenericDao<T> {
     }
 
     @Override
+    public List<T> listByProperty(String propName, Object propValue, Integer limit) {
+        return ofy().load().type(clazz).filter(propName, propValue).limit(limit).list();
+    }
+
+    @Override
     public List<T> listByFilter(Filter filtro) {
         return ofy().load().type(clazz).filter(filtro).list();
     }
 
+    @Override
     public List<T> listByStartWith(String field, String search) {
         Query query = ofy().load().type(clazz).filter(field + " >=", search);
         return query.filter(field + " <", search+"\ufffd").list();

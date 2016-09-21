@@ -114,20 +114,20 @@ angular.module('app.controllers', [])
     //   $scope.plant.dataCadastro = $filter('date')(newValue, 'dd/MM/yyyy HH:mm:ss');
     // });
   });
-
+  
   $scope.tirarFoto = function() {
     console.log("Entrou camera");
-    navigator.camera.getPicture(function(imagedata) {
-
+    navigator.camera.getPicture(function(imagedata) { 
+      
       if(typeof(imagedata) !== "undefined" && imagedata !== "") {
         window.plugins.imageResizer.resizeImage(
-                function(data) {
-
+                function(data) { 
                   $('#img-camera').attr("src", "data:image/jpeg;base64," + data.imageData);
                   $scope.plant.foto.value = "data:image/jpeg;base64," + data.imageData;
                   $("#btn-gravar").removeClass("disabled");
 
-                }, function (error) {
+                }, 
+                function (error) {
                     $ionicPopup.alert({
                       title: 'Oops',
                       template: 'Erro ao redimensionar imagem : \r\n' + error
@@ -147,16 +147,14 @@ angular.module('app.controllers', [])
             );
       }
 
-    },
+    }, 
     function (message) {
       $('#img-camera').prop("src", "");
       $("#btn-gravar").addClass("disabled");
       $scope.plant.foto.value = "";
       $("#image-path").val("");
-
-
-    },
-    {
+    }, 
+    { 
         quality: 90,
         destinationType: Camera.DestinationType.FILE_URI,
         sourceType : Camera.PictureSourceType.CAMERA,
