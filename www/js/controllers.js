@@ -165,91 +165,108 @@ angular.module('app.controllers', [])
     });
   };
 
+  $scope.validarDados = function(plant) {
+      if(typeof (plant.nome) == "undefined"){
+        var alerta = $ionicPopup.alert({
+          title: 'Oops',
+          template: 'O campo nome não foi preenchido.'
+        });
+        return false;
+      }
+      
+      return true;
+
+
+
+    // if(typeof (plant.nome) == "undefined" ||
+    //   typeof (plant.descricao) == "undefined" ||
+    //   typeof (plant.localizacao) == "undefined" ||
+    //   typeof (plant.dataCadastro) == "undefined" ||
+    //   typeof (plant.foto) == "undefined"){
+    //     var alerta = $ionicPopup.alert({
+    //       title: 'Oops',
+    //       template: 'Macacos me mordam! Algo saiu errado!'
+    //     });
+    //   }
+  }
+
   $scope.gravar = function(plant) {
     //Recupera os dados do formulário digitado
     var planta = {};
     console.log (plant);
-    if(typeof (plant.nome) == "undefined" ||
-      typeof (plant.descricao) == "undefined" ||
-      typeof (plant.localizacao) == "undefined" ||
-      typeof (plant.localizacao) == "undefined" ||
-      typeof (plant.foto) == "undefined"){
-        var alerta = $ionicPopup.alert({
-          title: 'Oops',
-          template: 'Macacos me mordam! Algo saiu errado!'
-        });
+
+    if ($scope.validarDados(plant)){
+      if(plant.id != null) {
+        planta = {
+          "id": plant.id,
+          "nome": plant.nome,
+          "descricao": plant.descricao,
+          "localizacao": plant.localizacao,
+          "dataCadastro": plant.dataCadastro,
+          "foto": {
+            "value": plant.foto.value
+          },
+          "ativa": plant.ativa
+        };
+      } else {
+        planta = {
+          "nome": plant.nome,
+          "descricao": plant.descricao,
+          "localizacao": plant.localizacao,
+          "dataCadastro": plant.dataCadastro,
+          "foto": {
+            "value": plant.foto.value
+          },
+          "ativa": plant.ativa
+        };
       }
 
-    if(plant.id != null) {
-      planta = {
-        "id": plant.id,
-        "nome": plant.nome,
-        "descricao": plant.descricao,
-        "localizacao": plant.localizacao,
-        "dataCadastro": plant.dataCadastro,
-        "foto": {
-          "value": plant.foto.value
-        },
-        "ativa": plant.ativa
-      };
-    } else {
-      planta = {
-        "nome": plant.nome,
-        "descricao": plant.descricao,
-        "localizacao": plant.localizacao,
-        "dataCadastro": plant.dataCadastro,
-        "foto": {
-          "value": plant.foto.value
-        },
-        "ativa": plant.ativa
-      };
-    }
+      console.log("Dados do formulário: ");
+      console.log(planta);
 
-    console.log("Dados do formulário: ");
-    console.log(planta);
+      if(plant.id != null) {
+        api.put('planta/v1/update', planta)
+        .success (function(response){
+            console.log (response);
+            var alerta = $ionicPopup.alert({
+              title: 'Maravilha',
+              template: 'Tudo certo! Dados atualizados!'
+            });
 
-    if(plant.id != null) {
-      api.put('planta/v1/update', planta)
-      .success (function(response){
-          console.log (response);
-          var alerta = $ionicPopup.alert({
-            title: 'Maravilha',
-            template: 'Tudo certo! Dados atualizados!'
+            alerta.then(function(res) {
+              $stateParams.plantId = null;
+              $state.go('tab.plants', { reload: true });
+            });
+          })
+        .error (function(err) {
+          $ionicPopup.alert({
+            title: 'Oops',
+            template: 'Macacos me mordam! Algo saiu errado!'
           });
-
-          alerta.then(function(res) {
-            $stateParams.plantId = null;
-            $state.go('tab.plants', { reload: true });
-          });
-        })
-      .error (function(err) {
-        $ionicPopup.alert({
-          title: 'Oops',
-          template: 'Macacos me mordam! Algo saiu errado!'
+          console.log (err);
         });
-        console.log (err);
-      });
-    } else {
-      api.post('planta/v1/new', planta)
-      .success (function(response) {
-          console.log (response);
-          var alerta = $ionicPopup.alert({
-            title: 'Maravilha',
-            template: 'Tudo certo! Cadastro realizado!'
-          });
+      } else {
+        api.post('planta/v1/new', planta)
+        .success (function(response) {
+            console.log (response);
+            var alerta = $ionicPopup.alert({
+              title: 'Maravilha',
+              template: 'Tudo certo! Cadastro realizado!'
+            });
 
-          alerta.then(function(res) {
-            $stateParams.plantId = null;
-            $state.go('tab.plants', { reload: true });
+            alerta.then(function(res) {
+              $stateParams.plantId = null;
+              $state.go('tab.plants', { reload: true });
+            });
+          })
+        .error (function(err) {
+          $ionicPopup.alert({
+            title: 'Oops',
+            template: 'Macacos me mordam! Algo saiu errado!'
           });
-        })
-      .error (function(err) {
-        $ionicPopup.alert({
-          title: 'Oops',
-          template: 'Macacos me mordam! Algo saiu errado!'
+          console.log (err);
         });
-        console.log (err);
-      });
+      }
     }
 
   };
