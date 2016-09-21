@@ -24,7 +24,7 @@ angular.module('app.controllers', [])
       $state.go('tab.add', { plantId: plant.id });
     });
   };
-  
+
   $scope.remove = function(plant) {
     var confirmPopup = $ionicPopup.confirm({
       title: 'Excluir',
@@ -42,7 +42,7 @@ angular.module('app.controllers', [])
             console.log (err);
         });
       }
-    });     
+    });
   };
 
   $scope.load = function () {
@@ -70,7 +70,7 @@ angular.module('app.controllers', [])
 
 // .controller('PlantsAddCtrl', function($scope, api, $http) {
 //   $scope.load = function () {
-    
+
 //   };
 
 //   $scope.plants = [];
@@ -89,14 +89,14 @@ angular.module('app.controllers', [])
 })
 
 .controller('AddCtrl', function($scope, $ionicLoading, $state, $stateParams, api, $ionicPopup, $filter) {
-  
+
   $scope.$on('$ionicView.enter', function(e) {
-    $scope.plant = { "ativa": true };
+    $scope.plant = { "ativa": true , "dataCadastro": new Date()};
 
     console.log("Plant ID: ");
     console.log($stateParams.plantId);
 
-    if($stateParams.plantId !== null) {
+    if($stateParams.plantId != null) {
       //Carrega os dados e preenche os campos
       api.get('planta/v1/get/' + $stateParams.plantId)
       .success (function(response){
@@ -107,24 +107,25 @@ angular.module('app.controllers', [])
           console.log (err);
       });
     } else {
-      $scope.plant = { "ativa": true };
+      $scope.plant = { "ativa": true , "dataCadastro": new Date()};
     }
 
-    $scope.$watch('plant.dataCadastro', function (newValue) {
-      $scope.plant.dataCadastro = $filter('date')(newValue, 'dd/MM/yyyy HH:mm:ss'); 
-    });
+    // $scope.$watch('plant.dataCadastro', function (newValue) {
+    //   $scope.plant.dataCadastro = $filter('date')(newValue, 'dd/MM/yyyy HH:mm:ss');
+    // });
   });
-  
+
   $scope.tirarFoto = function() {
     console.log("Entrou camera");
-    navigator.camera.getPicture(function(imagedata) { 
-      
+    navigator.camera.getPicture(function(imagedata) {
+
       if(typeof(imagedata) !== "undefined" && imagedata !== "") {
         window.plugins.imageResizer.resizeImage(
-                function(data) { 
-                  
+                function(data) {
+
                   $('#img-camera').attr("src", "data:image/jpeg;base64," + data.imageData);
-                  $scope.plant.foto.value = data.imageData;
+                  $scope.plant.foto.value = "data:image/jpeg;base64," + data.imageData;
+                  $("#btn-gravar").removeClass("disabled");
 
                 }, function (error) {
                     $ionicPopup.alert({
@@ -132,7 +133,7 @@ angular.module('app.controllers', [])
                       template: 'Erro ao redimensionar imagem : \r\n' + error
                     });
 
-                    $('#img-camera').attr("src", "");
+                    $('#img-camera').prop("src", "");
                     $("#btn-gravar").addClass("disabled");
                     $scope.plant.foto.value = "";
                     $("#image-path").val("");
@@ -146,19 +147,16 @@ angular.module('app.controllers', [])
             );
       }
 
-    }, 
-    function (message) { 
-      $ionicPopup.alert({
-        title: 'Oops',
-        template: 'Ocorreu um erro ao tentar tirar a foto!'
-      });
-
-      $('#img-camera').attr("src", "");
+    },
+    function (message) {
+      $('#img-camera').prop("src", "");
       $("#btn-gravar").addClass("disabled");
       $scope.plant.foto.value = "";
       $("#image-path").val("");
-    }, 
-    { 
+
+
+    },
+    {
         quality: 90,
         destinationType: Camera.DestinationType.FILE_URI,
         sourceType : Camera.PictureSourceType.CAMERA,
@@ -172,6 +170,17 @@ angular.module('app.controllers', [])
   $scope.gravar = function(plant) {
     //Recupera os dados do formulário digitado
     var planta = {};
+    console.log (plant);
+    if(typeof (plant.nome) == "undefined" ||
+      typeof (plant.descricao) == "undefined" ||
+      typeof (plant.localizacao) == "undefined" ||
+      typeof (plant.localizacao) == "undefined" ||
+      typeof (plant.foto) == "undefined"){
+        var alerta = $ionicPopup.alert({
+          title: 'Oops',
+          template: 'Macacos me mordam! Algo saiu errado!'
+        });
+      }
 
     if(plant.id != null) {
       planta = {
