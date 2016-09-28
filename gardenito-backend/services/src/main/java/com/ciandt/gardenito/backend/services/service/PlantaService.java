@@ -43,7 +43,7 @@ public class PlantaService {
             }
         }
 
-        return plantaDao.listAll();
+        return list;
     }
 
     public List<Planta> list(String nome) throws NotFoundException {
