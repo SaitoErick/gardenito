@@ -16,43 +16,38 @@
         <p><b>Descrição:</b> {{plant.descricao}}</p>
         <p><b>Ativa:</b> {{plant.ativa}}</p>
       </div>
-
-        <div class="item item-divider">
-          Parametrizaçao
-        </div>
-
+      <div class="item item-divider">
+        Parametrização
+      </div>
       <div class="item range range-positive">
-        <i class="icon ion-ios-rainy"></i>
-        <label>{{plant.parametros.humidade_ar_min}}</label>
-        <input type="range" name="volume" min="0" max="100" ng-model="plant.parametros.humidade_ar_min">
-        <input type="range" name="volume" min="0" max="100" ng-model="plant.parametros.humidade_ar_max">
-        <label>{{plant.parametros.humidade_ar_max}}</label>
+          <i class="icon ion-ios-rainy"></i>
+          <label>{{plant.parametros.humidade_ar_min}}</label>
+          <input type="range" name="volume" min="0" max="100" ng-model="plant.parametros.humidade_ar_min">
+          <input type="range" name="volume" min="0" max="100" ng-model="plant.parametros.humidade_ar_max">
+          <label>{{plant.parametros.humidade_ar_max}}</label>
+      </div>
+      <div class="item range range-positive">
+          <i class="icon ion-waterdrop"></i>
+          <label>{{plant.parametros.humidade_solo_min}}</label>
+          <input type="range" name="volume" min="0" max="100" ng-model="plant.parametros.humidade_solo_min">
+          <input type="range" name="volume" min="0" max="100" ng-model="plant.parametros.humidade_solo_max">
+          <label>{{plant.parametros.humidade_solo_max}}</label>
+      </div>
+      <div class="item range range-positive">
+          <i class="icon ion-ios-sunny-outline"></i>
+          <label>{{plant.parametros.luminosidade_min}}</label>
+          <input type="range" name="volume" min="0" max="100" ng-model="plant.parametros.luminosidade_min">
+          <input type="range" name="volume" min="0" max="100" ng-model="plant.parametros.luminosidade_max">
+          <label>{{plant.parametros.luminosidade_max}}</label>
       </div>
 
       <div class="item range range-positive">
-        <i class="icon ion-waterdrop"></i>
-        <label>{{plant.parametros.humidade_solo_min}}</label>
-        <input type="range" name="volume" min="0" max="100" ng-model="plant.parametros.humidade_solo_min">
-        <input type="range" name="volume" min="0" max="100" ng-model="plant.parametros.humidade_solo_max">
-        <label>{{plant.parametros.humidade_solo_max}}</label>
+          <i class="icon ion-thermometer"></i>
+          <label>{{plant.parametros.temperatura_min}}</label>
+          <input type="range" name="volume" min="0" max="100" ng-model="plant.parametros.temperatura_min">
+          <input type="range" name="volume" min="0" max="100" ng-model="plant.parametros.temperatura_max">
+          <label>{{plant.parametros.temperatura_max}}</label>
       </div>
-
-      <div class="item range range-positive">
-        <i class="icon ion-ios-sunny"></i>
-        <label>{{plant.parametros.luminosidade_min}}</label>
-        <input type="range" name="volume" min="0" max="100" ng-model="plant.parametros.luminosidade_min">
-        <input type="range" name="volume" min="0" max="100" ng-model="plant.parametros.luminosidade_max">
-        <label>{{plant.parametros.luminosidade_max}}</label>
-      </div>
-
-      <div class="item range range-positive">
-        <i class="icon ion-thermometer"></i>
-        <label>{{plant.parametros.temperatura_min}}</label>
-        <input type="range" name="volume" min="0" max="100" ng-model="plant.parametros.temperatura_min">
-        <input type="range" name="volume" min="0" max="100" ng-model="plant.parametros.temperatura_max">
-        <label>{{plant.parametros.temperatura_max}}</label>
-      </div>
-
     </div>
     <div class="list card" ng-repeat="dado in plant.dados">
       <div class="item item-divider">
@@ -67,7 +62,7 @@
         Humidade do solo: {{dado.humidade_solo}}%
       </div>
       <div class="item item-icon-left">
-        <i class="icon ion-ios-sunny"></i>
+        <i class="icon ion-ios-sunny-outline"></i>
         Luminosidade: {{dado.luminosidade}}L
       </div>
       <div class="item item-icon-left">
