@@ -1,7 +1,7 @@
 'use strict';
 angular.module('app.controllers')
 
-  .controller('PlantsDetailCtrl', function ($scope, PlantaService, $stateParams, $ionicPopup) {
+  .controller('PlantsDetailCtrl', function ($scope, PlantaService, PlantaParametrosService, $stateParams, $ionicPopup) {
 
     PlantaService.get($stateParams.plantId, function (retorno) {
       if (retorno.success) {
