@@ -117,6 +117,56 @@ angular.module('app.controllers')
     $scope.gravarParametros = function (parametros) {
       console.log(parametros);
       if ($scope.validarDados(parametros)) {
+        if (parametros.id != null) {
+            parametros = {
+                "id": parametros.id,
+                "idPlanta": parametros.idPlanta
+                "humidade_ar_max": parametros.humidade_ar_max,
+                "humidade_ar_min": parametros.humidade_ar_min,
+                "humidade_solo_max": parametros.humidade_solo_max,
+                "humidade_solo_min": parametros.humidade_solo_min,
+                "luminosidade_max": , parametros.luminosidade_max,
+                "luminosidade_min": , parametros.luminosidade_min,
+                "temperatura_max": , parametros.temperatura_max,
+                "temperatura_min": , parametros.temperatura_min,
+
+
+            };
+        } else {
+            parametros= {
+              "idPlanta": parametros.idPlanta
+              "humidade_ar_max": parametros.humidade_ar_max,
+              "humidade_ar_min": parametros.humidade_ar_min,
+              "humidade_solo_max": parametros.humidade_solo_max,
+              "humidade_solo_min": parametros.humidade_solo_min,
+              "luminosidade_max": , parametros.luminosidade_max,
+              "luminosidade_min": , parametros.luminosidade_min,
+              "temperatura_max": , parametros.temperatura_max,
+              "temperatura_min": , parametros.temperatura_min,
+            };
+        }
+
+        console.log("Dados do formulário: ");
+        console.log(parametros);
+
+        PlantaParametrosService.addOrUpdate(parametros, function (retorno) {
+            if (retorno.success) {
+                var alerta = $ionicPopup.alert({
+                    title: 'Sucesso',
+                    template: 'Tudo certo! Dados gravados com sucesso!'
+                });
+
+                alerta.then(function (res) {
+                    $stateParams.plantId = null;
+                    $state.go('tab.plants', { reload: true });
+                });
+            } else {
+                $ionicPopup.alert({
+                    title: 'Erro ao gravar os dados',
+                    template: 'Desculpe, mas ocorreu um erro ao tentar gravar os dados da planta. Mensagem: ' + retorno.erro.mensagem
+                });
+            }
+        });
 
       };
 
