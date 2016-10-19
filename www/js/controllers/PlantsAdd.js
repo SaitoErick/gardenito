@@ -78,13 +78,31 @@ angular.module('app.controllers')
         };
 
         $scope.validarDados = function (plant) {
-            if (typeof (plant.nome) == "undefined") {
+            if (typeof (plant.nome) == "undefined"||
+                (plant.nome) == "") {
                 $ionicPopup.alert({
                     title: 'Oops',
                     template: 'O campo nome não foi preenchido.'
                 });
                 return false;
             }
+            if (typeof (plant.descricao) == "undefined"||
+                (plant.descricao) == "") {
+                $ionicPopup.alert({
+                    title: 'Oops',
+                    template: 'O campo descrição não foi preenchido.'
+                });
+                return false;
+            }
+            if (typeof (plant.localizacao) == "undefined"||
+                (plant.localizacao) == "") {
+                $ionicPopup.alert({
+                    title: 'Oops',
+                    template: 'O campo localização não foi preenchido.'
+                });
+                return false;
+            }
+
 
             return true;
 
