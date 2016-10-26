@@ -120,29 +120,27 @@ angular.module('app.controllers')
         if (parametros.id != null) {
             parametros = {
                 "id": parametros.id,
-                "idPlanta": parametros.idPlanta
+                "idPlanta": parametros.idPlanta,
                 "humidade_ar_max": parametros.humidade_ar_max,
                 "humidade_ar_min": parametros.humidade_ar_min,
                 "humidade_solo_max": parametros.humidade_solo_max,
                 "humidade_solo_min": parametros.humidade_solo_min,
-                "luminosidade_max": , parametros.luminosidade_max,
-                "luminosidade_min": , parametros.luminosidade_min,
-                "temperatura_max": , parametros.temperatura_max,
-                "temperatura_min": , parametros.temperatura_min,
-
-
+                "luminosidade_max": parametros.luminosidade_max,
+                "luminosidade_min": parametros.luminosidade_min,
+                "temperatura_max": parametros.temperatura_max,
+                "temperatura_min": parametros.temperatura_min
             };
         } else {
             parametros= {
-              "idPlanta": parametros.idPlanta
+              "idPlanta": parametros.idPlanta,
               "humidade_ar_max": parametros.humidade_ar_max,
               "humidade_ar_min": parametros.humidade_ar_min,
               "humidade_solo_max": parametros.humidade_solo_max,
               "humidade_solo_min": parametros.humidade_solo_min,
-              "luminosidade_max": , parametros.luminosidade_max,
-              "luminosidade_min": , parametros.luminosidade_min,
-              "temperatura_max": , parametros.temperatura_max,
-              "temperatura_min": , parametros.temperatura_min,
+              "luminosidade_max": parametros.luminosidade_max,
+              "luminosidade_min": parametros.luminosidade_min,
+              "temperatura_max": parametros.temperatura_max,
+              "temperatura_min": parametros.temperatura_min
             };
         }
 
