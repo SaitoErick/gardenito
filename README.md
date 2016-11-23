@@ -26,6 +26,13 @@ Finalizando as instalações acima, rode o comando abaixo para instalar as depen
 
 
 ## Para Desenvolvedor
-Links uteis:
+
+### Outras informações sobre o projeto
+Para obter outras informações sobre o App, rode os seguintes comandos:
+
+* `ionic platform list`
+
+
+###Links uteis:
 
 * [Ionic Creator](creator.ionic.io/)
