@@ -1,7 +1,12 @@
 # GARDENITO
 > Esse é um APP chamado GARDENITO
 
+## Assets
+
+Na pasta gardenito assets você pode encontrar os Assets, imagens e PSDs, do App para maior ilustração.
+
 ## Instalação
+
 Para rodar o Ionic 1 no computador é necessário a instalação do Cordova e do Ionic globalmente.     
 Então rode os seguintes comandos:
 
@@ -18,3 +23,9 @@ Finalizando as instalações acima, rode o comando abaixo para instalar as depen
 É possivel rodar/subir o App através da ferramenta [Ionic Lab](http://lab.ionic.io/) (faça o download e rode na sua maquina), ou diretamente no browser através do seguinte comando:
 
 * `ionic serve`
+
+
+## Para Desenvolvedor
+Links uteis:
+
+* [Ionic Creator](creator.ionic.io/)
