@@ -165,6 +165,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
+        "id": "onesignal-cordova-plugin.OneSignal",
+        "clobbers": [
+            "OneSignal"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
         "id": "cordova-plugin-file.DirectoryEntry",
         "clobbers": [
@@ -331,6 +338,7 @@ module.exports.metadata =
     "cordova-plugin-camera": "2.2.0",
     "com-badrit-base64": "0.2.0",
     "cordova-plugin-image-resizer": "1.0.0",
+    "onesignal-cordova-plugin": "1.13.1",
     "cordova-plugin-compat": "1.0.0",
     "cordova-plugin-file": "4.2.0"
 }
