@@ -1,5 +1,7 @@
 # GARDENITO
-> Esse é um APP chamado GARDENITO
+> O projeto Gardenito surgiu de uma ação do Dia das Mulheres, incentivando a participação de mulheres em Dojos na garagem. 
+
+O projeto consiste em um dispositivo IoT com sensores que monitoram o ambiente de uma planta. Através de um aplicativo mobile, podemos saber se a temperatura e luminosidade estão adequadas e saber quando regar a planta ou mudar de lugar.
 
 ## Assets
 
