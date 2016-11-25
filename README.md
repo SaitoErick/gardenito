@@ -36,3 +36,4 @@ Para obter outras informações sobre o App, rode os seguintes comandos:
 ###Links uteis:
 
 * [Ionic Creator](creator.ionic.io/)
+*
