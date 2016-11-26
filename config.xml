@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ciandt.enterprise.prototype.gardenito" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Gardenito</name>
-  <description>
-        Aplicativo do Gardenito para leitura e configuração dos sensores.
+  <description>&#xD;
+        Aplicativo do Gardenito para leitura e configuração dos sensores.&#xD;
     </description>
-  <author email="rodrigogs@ciandt.com" href="#">
-      Rodrigo Sclosa
+  <author email="rodrigogs@ciandt.com" href="#">&#xD;
+      Rodrigo Sclosa&#xD;
     </author>
   <content src="index.html"/>
   <access origin="*"/>

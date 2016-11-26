@@ -1,52 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ciandt.enterprise.prototype.gardenito" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <preference name="loglevel" value="DEBUG" />
-    <feature name="Keyboard">
-        <param name="android-package" value="io.ionic.keyboard.IonicKeyboard" />
-        <param name="onload" value="true" />
-    </feature>
-    <feature name="Notification">
-        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
-    </feature>
-    <feature name="Whitelist">
-        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
-        <param name="onload" value="true" />
-    </feature>
-    <feature name="SplashScreen">
-        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
-        <param name="onload" value="true" />
-    </feature>
-    <feature name="NetworkStatus">
-        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
-    </feature>
-    <feature name="Device">
-        <param name="android-package" value="org.apache.cordova.device.Device" />
-    </feature>
-    <feature name="InAppBrowser">
-        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
-    </feature>
-    <feature name="File">
-        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
-        <param name="onload" value="true" />
-    </feature>
-    <feature name="Media">
-        <param name="android-package" value="org.apache.cordova.media.AudioHandler" />
-    </feature>
-    <feature name="Capture">
-        <param name="android-package" value="org.apache.cordova.mediacapture.Capture" />
-    </feature>
-    <feature name="Camera">
-        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
-    </feature>
-    <feature name="Base64">
-        <param name="android-package" value="com.badrit.Base64.Base64Plugin" />
-    </feature>
-    <feature name="ImageResizePlugin">
-        <param name="android-package" value="com.raananw.ImageResizePlugin" />
-    </feature>
-    <feature name="OneSignalPush">
-        <param name="android-package" value="com.plugin.gcm.OneSignalPush" />
-    </feature>
+    <name>Gardenito</name>
+    <description>
+        Aplicativo do Gardenito para leitura e configuração dos sensores.
+    </description>
+    <author email="rodrigogs@ciandt.com" href="#">
+      Rodrigo Sclosa
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
     <splash density="land-ldpi" src="resources\android\splash\drawable-land-ldpi-screen.png" />
     <splash density="land-mdpi" src="resources\android\splash\drawable-land-mdpi-screen.png" />
     <splash density="land-hdpi" src="resources\android\splash\drawable-land-hdpi-screen.png" />
@@ -57,15 +19,7 @@
     <splash density="port-xhdpi" src="resources\android\splash\drawable-port-xhdpi-screen.png" />
     <splash density="port-xxhdpi" src="resources\android\splash\drawable-port-xxhdpi-screen.png" />
     <splash density="port-xxxhdpi" src="resources\android\splash\drawable-port-xxxhdpi-screen.png" />
-    <name>Gardenito</name>
-    <description>
-        Aplicativo do Gardenito para leitura e configuração dos sensores.
-    </description>
-    <author email="rodrigogs@ciandt.com" href="#">
-      Rodrigo Sclosa
-    </author>
-    <content src="index.html" />
-    <access origin="*" />
+    <preference name="loglevel" value="DEBUG" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />

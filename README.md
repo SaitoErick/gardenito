@@ -27,13 +27,19 @@ Finalizando as instalações acima, rode o comando abaixo para instalar as depen
 
 ## Para Desenvolvedor
 
+Para rodar uma versão emulada de `Android` é necessário instalar [Java SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) e o [Android SDK](https://developer.android.com/studio/index.html).   
+
+E para rodar uma versão emulada do `IOS` é necessario estar em um Mac.
+
 ### Outras informações sobre o projeto
 Para obter outras informações sobre o App, rode os seguintes comandos:
 
 * `ionic platform list`
-
+* `ionic platform add ios`
+* `ionic platform add android`
 
 ###Links uteis:
 
-* [Ionic Creator](creator.ionic.io/)
-*
+* [Ionic Creator](http://creator.ionic.io/)
+* [Cordova](https://cordova.apache.org/)
+* [Windows Android Variables](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html) 
