@@ -29,7 +29,12 @@ Finalizando as instalações acima, rode o comando abaixo para instalar as depen
 
 Para rodar uma versão emulada de `Android` é necessário instalar [Java SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) e o [Android SDK](https://developer.android.com/studio/index.html).   
 
-E para rodar uma versão emulada do `IOS` é necessario estar em um Mac.
+E para rodar uma versão emulada do `IOS`, ou gerar a versão final é necessario utilizar um Mac.      
+
+Para compilar o projeto em arquivos finais, rodar o seguintes comandos:
+
+* `ionic build android`
+* `ionic build ios` 
 
 ### Outras informações sobre o projeto
 Para obter outras informações sobre o App, rode os seguintes comandos:
