@@ -34,9 +34,11 @@ E para rodar uma versão emulada do `IOS` é necessario estar em um Mac.
 ### Outras informações sobre o projeto
 Para obter outras informações sobre o App, rode os seguintes comandos:
 
+* `ionic info`
 * `ionic platform list`
-* `ionic platform add ios`
-* `ionic platform add android`
+* `ionic platform add ios --save` / `ionic platform add android --save` 
+* `cordova telemetry on`
+* `cordova platform version android`
 
 ###Links uteis:
 

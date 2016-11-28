@@ -16,11 +16,11 @@
         <param name="onload" value="true" />
     </feature>
     <name>Gardenito</name>
-    <description>
-        Aplicativo do Gardenito para leitura e configuração dos sensores.
+    <description>
+        Aplicativo do Gardenito para leitura e configuração dos sensores.
     </description>
-    <author email="rodrigogs@ciandt.com" href="#">
-      Rodrigo Sclosa
+    <author email="rodrigogs@ciandt.com" href="#">
+      Rodrigo Sclosa
     </author>
     <content src="index.html" />
     <access origin="*" />
