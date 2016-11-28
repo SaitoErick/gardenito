@@ -1,5 +1,8 @@
 <ion-view view-title="Plants">
-  <ion-content>
+  <ion-header-bar align-title="left" class="bar-positive">
+      <h1 class="title">HEADER</h1>
+  </ion-header-bar>
+  <ion-content class="has-header">
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="plant in plants" type="item-text-wrap" href="#/tab/plants/{{plant.id}}">
         <img ng-src="{{plant.foto.value}}">
