@@ -50,3 +50,9 @@ Para obter outras informações sobre o App, rode os seguintes comandos:
 * [Ionic Creator](http://creator.ionic.io/)
 * [Cordova](https://cordova.apache.org/)
 * [Windows Android Variables](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html) 
+
+
+#### Web Design Instructions
+
+* Font Cairo - https://fonts.google.com/specimen/Cairo
+* green-dark-default: #002a02 
