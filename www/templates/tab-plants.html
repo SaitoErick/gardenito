@@ -1,7 +1,12 @@
-<ion-view view-title="Plants">
-  <ion-header-bar align-title="left" class="bar-positive">
-      <h1 class="title">HEADER</h1>
-  </ion-header-bar>
+ <!--Commented old Header-->
+ <!--<ion-view view-title="Plants">
+ <ion-header-bar align-title="left" class="bar-positive"></ion-header-bar>-->
+
+<ion-view view-title="Gardenito" hide-nav-bar="true">
+ <ion-header-bar align-title="center" style="background-color: #002a02" >
+    <h1 class="title"><img src="img/gardenito-logo.png" width="150" /></h1>
+ </ion-header-bar>
+
   <ion-content class="has-header">
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="plant in plants" type="item-text-wrap" href="#/tab/plants/{{plant.id}}">
@@ -21,3 +26,4 @@
     </ion-list>
   </ion-content>
 </ion-view>
+
