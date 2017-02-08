@@ -1,10 +1,13 @@
-angular.module('app.config', [])
-//Arquivo de configurações padrões do Projeto
-.factory('GardenitoConfig', function($http) {
+/**
+ * Arquivo de configurações padrões do Projeto
+ */
 
-  return {
-    urlServicos: function() {
-      return "https://cit-gardenito.appspot.com/_ah/api/";
-    }
-  };
-});
+angular.module('app.config', [])
+  .factory('GardenitoConfig', function($http) {
+
+    return {
+      urlServicos: function() {
+        return "https://cit-gardenito.appspot.com/_ah/api/";
+      }
+    };
+  });
