@@ -57,3 +57,7 @@ Para obter outras informações sobre o App, rode os seguintes comandos:
 
 * Font Cairo - https://fonts.google.com/specimen/Cairo
 * green-dark-default: #002a02 
+
+### API
+* [Link API](https://apis-explorer.appspot.com/apis-explorer/?base=https://cit-gardenito.appspot.com/_ah/api#p/)
+* [Google Endopoints](https://cloud.google.com/appengine/docs/java/endpoints/)
