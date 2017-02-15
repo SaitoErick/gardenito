@@ -2,24 +2,24 @@
   <ion-content>
     <div class="list list-inset">
       <form>
-        <label class="item item-input item-floating-label">
-          <span class="input-label">Nome da planta</span>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label"><strong>Nome da planta</strong></span>
           <input id="nome" type="text" placeholder="Nome da planta" ng-model="plant.nome">
         </label>
-        <label class="item item-input item-floating-label">
-          <span class="input-label">Descrição</span>
-          <textarea id="descricao" cols="5" rows="4" placeholder="Descrição" ng-model="plant.descricao"></textarea>
+        <label class="item item-inputitem-stacked-label">
+          <span class="input-label"><strong>Descrição</strong></span>
+          <textarea id="descricao" cols="100" rows="4" placeholder="Descrição" ng-model="plant.descricao"></textarea>
         </label>
-        <label class="item item-input item-floating-label">
-          <span class="input-label">Localização da planta</span>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label"><strong>Localização da planta</strong></span>
           <input id="localizacao" type="text" placeholder="Localização da planta" ng-model="plant.localizacao">
         </label>
         <label class="item item-input item-stacked-label">
-          <span class="input-label">Data de cadastro</span>
+          <span class="input-label"><strong>Data de cadastro</strong></span>
           <input id="dataCadastro" type="date" placeholder="Data de cadastro" ng-model="plant.dataCadastro" format-date>
         </label>
         <label class="item item-toggle">
-          Cadastro ativo?
+          <strong>Cadastro ativo?</strong>
           <label class="toggle toggle-assertive">
             <input id="ativa" type="checkbox" ng-model="plant.ativa" checked>
             <div class="track">
@@ -27,8 +27,12 @@
             </div>
           </label>
         </label>
+        <label for="identificacaoSensor" class="item item-input item-stacked-label">
+          <span class="input-label"><strong>Identificação do Sensor</strong></span>
+          <input id="identificacaoSensor" type="text" placeholder="Identificação do Sensor" ng-model="plant.sensor">
+        </label>
         <label class="item item-input item-stacked-label centro">
-          <span class="input-label">Imagem da planta</span>
+          <span class="input-label"><strong>Imagem da planta</strong></span>
           <!--<input id="foto" type="text" placeholder="Caminho da foto" ng-model="plant.foto.value">-->
           <div id="camera-button-wrapper" class="camera-button-wrapper" ng-click="tirarFoto()">
               <img id="img-camera" border="0" />

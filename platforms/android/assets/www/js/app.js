@@ -28,7 +28,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     window.plugins.OneSignal.init("af02f37e-7adb-48cb-b15f-c76cca4fb49c",
                                   {googleProjectNumber: "398377242088"},
                                   notificationOpenedCallback);
-    
+
     // Show an alert box if a notification comes in when the user is in your app.
     window.plugins.OneSignal.enableInAppAlertNotification(true);
   });

@@ -134,7 +134,8 @@ angular.module('app.controllers')
                         "foto": {
                             "value": plant.foto.value
                         },
-                        "ativa": plant.ativa
+                        "ativa": plant.ativa,
+                        "sensor": plant.sensor
                     };
                 } else {
                     planta = {
@@ -145,7 +146,8 @@ angular.module('app.controllers')
                         "foto": {
                             "value": plant.foto.value
                         },
-                        "ativa": plant.ativa
+                        "ativa": plant.ativa,
+                        "sensor": plant.sensor
                     };
                 }
 
@@ -172,7 +174,5 @@ angular.module('app.controllers')
                 });
 
             }
-
         };
-
     });
