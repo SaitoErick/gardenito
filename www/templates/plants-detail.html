@@ -4,8 +4,43 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view view-title="{{plant.nome}}">
+<ion-view class="plant-detail"> 
+  <ion-nav-buttons side="left">
+    <button class="button button-clear back-button" ng-click="$ionicGoBack()">
+      <i class="icon icon-back-android"></i> 
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+      <button class="button button-clear edit-button" ng-click="doSomething()">
+        Editar
+      </button>
+    </ion-nav-buttons>
   <ion-content class="padding">
+    <div class="plant-message danger">
+      <i class="icon icon-triste"></i>
+      <span>Socorrooooo! Preciso de ajuda!</span>
+    </div>
+    <div class="plant-message cool">
+      <i class="icon icon-feliz"></i>
+      <span>Yupi!!! Estou muito feliz e saudável!</span>
+    </div>
+    <div class="list card">
+      <div class="item item-divider">
+        {{ dados.ultima_data | date : "dd/MM/yyyy HH:mm" }}
+      </div>
+      <div class="item item-avatar">
+        <i class="icon ion-ios-rainy"></i>{{ dados.humidade_ar }}%
+      </div>
+      <div class="item item-avatar">
+        <i class="icon ion-waterdrop"></i>{{ dados.humidade_solo }}%
+      </div>
+      <div class="item item-avatar">
+        <i class="icon ion-ios-sunny-outline"></i>{{ dados.luminosidade }}L
+      </div>
+      <div class="item item-avatar">
+        <i class="icon ion-thermometer"></i>{{ dados.temperatura }}oC
+      </div>
+    </div>
     <div class="list card">
 
       <div class="item item-avatar">
@@ -18,27 +53,9 @@
         <p><b>Identificação do Sensor:</b>{{ plant.sensor }}</p>
       </div>
     </div>
-    <div class="list card">
-      <div class="item item-divider">
-        {{ dados.ultima_data | date : "dd/MM/yyyy HH:mm" }}
-      </div>
-      <div class="item item-icon-left">
-        <i class="icon ion-ios-rainy"></i> Humidade do ar: {{ dados.humidade_ar }}%
-      </div>
-      <div class="item item-icon-left">
-        <i class="icon ion-waterdrop"></i> Humidade do solo: {{ dados.humidade_solo }}%
-      </div>
-      <div class="item item-icon-left">
-        <i class="icon ion-ios-sunny-outline"></i> Luminosidade: {{ dados.luminosidade }}L
-      </div>
-      <div class="item item-icon-left">
-        <i class="icon ion-thermometer"></i> Temperatura: {{ dados.temperatura }}oC
-      </div>
-    </div>
 
     <button class="button button-block button-positive" ng-click="gravarParametros(plant.parametros)">
       <i class="icon ion-checkmark-circled"></i> Gravar
     </button>
-
   </ion-content>
 </ion-view>
