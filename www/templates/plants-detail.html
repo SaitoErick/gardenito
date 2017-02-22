@@ -17,9 +17,6 @@
         <p><b>Ativa:</b> {{plant.ativa}}</p>
         <p><b>Identificação do Sensor:</b>{{ plant.sensor }}</p>
       </div>
-      <button class="button button-block button-positive" ng-click="gravarParametros(plant.parametros)">
-        <i class="icon ion-checkmark-circled"></i> Gravar
-      </button>
     </div>
     <div class="list card">
       <div class="item item-divider">
@@ -38,6 +35,10 @@
         <i class="icon ion-thermometer"></i> Temperatura: {{ dados.temperatura }}oC
       </div>
     </div>
+
+    <button class="button button-block button-positive" ng-click="gravarParametros(plant.parametros)">
+      <i class="icon ion-checkmark-circled"></i> Gravar
+    </button>
 
   </ion-content>
 </ion-view>
