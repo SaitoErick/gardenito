@@ -1,8 +1,18 @@
-<ion-view view-title="Adicionar planta">
+<ion-view view-title="" class="plants-add-edit">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear back-button" ng-click="$ionicGoBack()">
+      <i class="icon-back-android"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear edit-button" ng-click="gravar(plant)">
+        Salvar
+    </button>
+  </ion-nav-buttons>
   <ion-content>
     <div class="list list-inset">
       <form>
-        <div class="item item-divider">
+        <div class="item item-divider plant-title">
           Dados da Planta
         </div>
 
@@ -10,22 +20,22 @@
           <span class="input-label"><strong>Nome da planta</strong></span>
           <input id="nome" type="text" placeholder="Nome da planta" ng-model="plant.nome">
         </label>
-        
+
         <label class="item item-inputitem-stacked-label">
           <span class="input-label"><strong>Descrição</strong></span>
           <textarea id="descricao" cols="100" rows="4" placeholder="Descrição" ng-model="plant.descricao"></textarea>
         </label>
-        
+
         <label class="item item-input item-stacked-label">
           <span class="input-label"><strong>Localização da planta</strong></span>
           <input id="localizacao" type="text" placeholder="Localização da planta" ng-model="plant.localizacao">
         </label>
-        
+
         <label class="item item-input item-stacked-label">
           <span class="input-label"><strong>Data de cadastro</strong></span>
           <input id="dataCadastro" type="date" placeholder="Data de cadastro" ng-model="plant.dataCadastro" format-date>
         </label>
-        
+
         <label class="item item-toggle">
           <strong>Cadastro ativo?</strong>
           <label class="toggle toggle-assertive">
@@ -35,7 +45,7 @@
             </div>
           </label>
         </label>
-        
+
         <label for="identificacaoSensor" class="item item-input item-stacked-label">
           <span class="input-label"><strong>Identificação do Sensor</strong></span>
           <input id="identificacaoSensor" type="text" placeholder="Identificação do Sensor" ng-model="plant.sensor">
@@ -53,6 +63,7 @@
         <div class="item item-divider">
           Parametrização
         </div>
+        {{ plant.parametros }}
 
         <div class="item range range-positive">
           <i class="icon ion-ios-rainy"></i>
@@ -69,7 +80,7 @@
           <input type="range" min="0" max="100" ng-model="plant.parametros.humidade_solo_max">
           <label class="label-parametros">{{plant.parametros.humidade_solo_max}}</label>
         </div>
-        
+
         <div class="item range range-positive">
           <i class="icon ion-ios-sunny-outline"></i>
           <label class="label-parametros">{{plant.parametros.luminosidade_min}}</label>
@@ -77,7 +88,7 @@
           <input type="range" min="0" max="100" ng-model="plant.parametros.luminosidade_max">
           <label class="label-parametros">{{plant.parametros.luminosidade_max}}</label>
         </div>
-        
+
         <div class="item range range-positive">
           <i class="icon ion-thermometer"></i>
           <label class="label-parametros">{{plant.parametros.temperatura_min}}</label>

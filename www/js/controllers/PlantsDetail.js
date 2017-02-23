@@ -1,7 +1,7 @@
 'use strict';
 angular.module('app.controllers')
 
-  .controller('PlantsDetailCtrl', function ($scope, PlantaService, PlantaParametrosService, $stateParams, $ionicPopup) {
+  .controller('PlantsDetailCtrl', function ($scope, PlantaService, PlantaParametrosService, $stateParams, $ionicPopup, $state) {
 
     PlantaService.get($stateParams.plantId, function (retorno) {
       if (retorno.success) {
@@ -15,6 +15,10 @@ angular.module('app.controllers')
         });
       }
     });
+
+    $scope.editPlant = function(plant){
+      $state.go('tab.add', { plantId: plant.id });
+    }
 
     $scope.gravarParametros = function (parametros) {
       console.log(parametros);

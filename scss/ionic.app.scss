@@ -19,7 +19,9 @@ $dark:                            #444 !default;
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
-@import "gardenito/base.scss";
-@import "gardenito/header.scss";
+@import 'www/lib/ionic/scss/ionic';
+@import 'gardenito/variables/colors';
+@import 'gardenito/base.scss';
+@import 'gardenito/header.scss';
+
 
