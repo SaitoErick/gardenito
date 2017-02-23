@@ -9817,3 +9817,17 @@ a.button {
 
 body.gardenito {
   background-color: #002a02; }
+
+.camera-button-wrapper {
+  cursor: pointer;
+  width: 185px;
+  height: auto;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px; }
+  .camera-button-wrapper img {
+    width: 185px; }
+
+.icon-back-android::before {
+  font-size: 17px; }
