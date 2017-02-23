@@ -1,7 +1,15 @@
-'use strict';
-angular.module('app.controllers')
+(function() {
+  'use strict';
 
-  .controller('PlantsCtrl', function ($scope, PlantaService, $ionicPopup, $stateParams, $state) {
+  angular
+    .module('app.controllers')
+    .controller('PlantsCtrl', PlantsCtrl);
+
+    function PlantsCtrl ($scope,
+                         PlantaService,
+                         $ionicPopup,
+                         $stateParams,
+                         $state) {
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
     // To listen for when this page is active (for example, to refresh data),
@@ -72,4 +80,6 @@ angular.module('app.controllers')
         $scope.load();
       }
     });
-  });
+  }
+
+})();

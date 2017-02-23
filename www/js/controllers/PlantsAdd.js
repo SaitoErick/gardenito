@@ -1,9 +1,19 @@
-'use strict';
-angular.module('app.controllers')
+(function() {
+  'use strict';
 
-    .controller('AddCtrl', 
-    
-    function ($scope, PlantaService, PlantaParametrosService, $ionicLoading, $state, $stateParams, $ionicPopup, $filter, $cordovaDevice) {
+  angular
+    .module('app.controllers')
+    .controller('AddCtrl', ['$cordovaDevice', AddCtrl]);
+
+    function AddCtrl ($scope,
+                      PlantaService,
+                      PlantaParametrosService,
+                      $ionicLoading,
+                      $state,
+                      $stateParams,
+                      $ionicPopup,
+                      $filter,
+                      $cordovaDevice) {
 
         $scope.$on('$ionicView.enter', function (e) {
         $scope.plant = { "ativa": true, "dataCadastro": new Date() };
@@ -333,4 +343,6 @@ angular.module('app.controllers')
 
             };
         };
-    });
+    }
+
+})();
