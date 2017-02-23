@@ -5,7 +5,7 @@
     </button>
   </ion-nav-buttons>
   <ion-nav-buttons side="right">
-    <button class="button button-clear edit-button" ng-click="gravar(plant)">
+    <button class="button button-clear edit-button" ng-click="gravar(plant, parametros)">
         Salvar
     </button>
   </ion-nav-buttons>
@@ -61,47 +61,48 @@
         </label>
 
         <div class="item item-divider">
-          Parametrização
+          <h2 class="title"><strong>Parametrização</strong></h2>
+          <p>Valores a serem inseridos para Análise dos Resultados enviados pela planta </p>
         </div>
-        {{ plant.parametros }}
-
         <div class="item range range-positive">
           <i class="icon ion-ios-rainy"></i>
-          <label class="label-parametros">{{plant.parametros.humidade_ar_min}}</label>
-          <input type="range" min="0" max="100" ng-model="plant.parametros.humidade_ar_min">
-          <input type="range" min="0" max="100" ng-model="plant.parametros.humidade_ar_max">
-          <label class="label-parametros">{{plant.parametros.humidade_ar_max}}</label>
+          <label class="label-parametros">{{parametros.humidade_ar_min}}</label>
+          <input type="range" min="0" max="100" ng-model="parametros.humidade_ar_min">
+          <input type="range" min="0" max="100" ng-model="parametros.humidade_ar_max">
+          <label class="label-parametros">{{parametros.humidade_ar_max}}</label>
         </div>
 
         <div class="item range range-positive">
           <i class="icon ion-waterdrop"></i>
-          <label class="label-parametros">{{plant.parametros.humidade_solo_min}}</label>
-          <input type="range" min="0" max="100" ng-model="plant.parametros.humidade_solo_min">
-          <input type="range" min="0" max="100" ng-model="plant.parametros.humidade_solo_max">
+          <label class="label-parametros">{{parametros.humidade_solo_min}}</label>
+          <input type="range" min="0" max="100" ng-model="parametros.humidade_solo_min">
+          <input type="range" min="0" max="100" ng-model="parametros.humidade_solo_max">
           <label class="label-parametros">{{plant.parametros.humidade_solo_max}}</label>
         </div>
 
         <div class="item range range-positive">
           <i class="icon ion-ios-sunny-outline"></i>
-          <label class="label-parametros">{{plant.parametros.luminosidade_min}}</label>
-          <input type="range" min="0" max="100" ng-model="plant.parametros.luminosidade_min">
-          <input type="range" min="0" max="100" ng-model="plant.parametros.luminosidade_max">
-          <label class="label-parametros">{{plant.parametros.luminosidade_max}}</label>
+          <label class="label-parametros">{{parametros.luminosidade_min}}</label>
+          <input type="range" min="0" max="100" ng-model="parametros.luminosidade_min">
+          <input type="range" min="0" max="100" ng-model="parametros.luminosidade_max">
+          <label class="label-parametros">{{parametros.luminosidade_max}}</label>
         </div>
 
         <div class="item range range-positive">
           <i class="icon ion-thermometer"></i>
-          <label class="label-parametros">{{plant.parametros.temperatura_min}}</label>
-          <input type="range" min="0" max="100" ng-model="plant.parametros.temperatura_min">
-          <input type="range" min="0" max="100" ng-model="plant.parametros.temperatura_max">
-          <label class="label-parametros">{{plant.parametros.temperatura_max}}</label>
+          <label class="label-parametros">{{parametros.temperatura_min}}</label>
+          <input type="range" min="0" max="100" ng-model="parametros.temperatura_min">
+          <input type="range" min="0" max="100" ng-model="parametros.temperatura_max">
+          <label class="label-parametros">{{parametros.temperatura_max}}</label>
         </div>
 
         <div class="item item-divider"></div>
 
-        <button id="btn-gravar" class="button button-full button-positive" ng-click="gravar(plant)">
+        <button id="btn-gravar" class="button button-full button-positive" ng-click="gravar(plant, parametros)">
           <i class="icon ion-plus"></i>&nbsp;&nbsp;Gravar
         </button>
+        <br /><br />
+        {{ parametros }}
       </form>
     </div>
   </ion-content>

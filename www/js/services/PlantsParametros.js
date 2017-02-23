@@ -30,6 +30,7 @@ angular.module('app.services')
             }
           });
       },
+      
       //Função para inserir ou atualizar uma planta
       addOrUpdate: function (item, callback) {
         var retorno = RetornoServicos.retorno();
