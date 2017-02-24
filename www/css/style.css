@@ -95,14 +95,30 @@
   line-height: 30px;
 }
 
-/* Plants Details */
+/* Reset enviroment */
+/*.scroll-content.padding
+{
+  padding-top: 0;
+}*/
+
 .bar.bar-stable {
    border-color: transparent;
    background-color: #FFF;
 }
 
-.bar-stable .button.button-clear {
+.bar.bar-light
+{
+  border-color: transparent;
+}
+
+.bar-stable .button.button-clear, .bar-light .button.button-clear  {
     color: #898989;
+    font-size: 15px;
+}
+
+/* Plants Details */
+.plant-detail{
+  background-color: #EFFBF0;
 }
 
 .plant-message
@@ -112,7 +128,7 @@
     line-height: 20px;
     font-size: 15px;
     padding: 0 5px;
-    margin: 0 -10px;
+    margin: -10px -10px 0;
 }
 
 .plant-message.danger
@@ -131,3 +147,32 @@
   font-size: 15px;
 }
 
+.plant-main-info
+{
+  height: 200px;
+  background-color: #FFF;
+  margin: 0 -10px;
+  padding: 10px;
+}
+
+.plant-photo
+{
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border: 3px solid #E84B5F;
+  -webkit-border-radius: 75px;
+  -moz-border-radius: 75px;
+  border-radius: 75px;
+  padding: 4px;
+  background: #000;
+}
+
+.plant-photo img
+{
+  width: 130px;
+  height: 130px;
+  -webkit-border-radius: 65px;
+  -moz-border-radius: 65px;
+  border-radius: 65px;
+}

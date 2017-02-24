@@ -5,57 +5,47 @@
   The Friends service returns an array of friend data
 -->
 <ion-view class="plant-detail">
+  <!--TODO: use this code for v1
   <ion-nav-buttons side="left">
     <button class="button button-clear back-button" ng-click="$ionicGoBack()">
       <i class="icon icon-back-android"></i>
     </button>
   </ion-nav-buttons>
+  -->
   <ion-nav-buttons side="right">
-      <button class="button button-clear edit-button" ng-click="editPlant(plant)">
+    <button class="button button-clear edit-button" ng-click="editPlant(plant)">
         Editar
       </button>
-    </ion-nav-buttons>
+  </ion-nav-buttons>
   <ion-content class="padding">
-    <div class="plant-message danger">
-      <i class="icon icon-triste"></i>
-      <span>Socorrooooo! Preciso de ajuda!</span>
+    <div class="plant-message {{ plant.status }}">
+      <i class="icon {{ plant.icon }}"></i>
+      <span>{{ plant.status_message }}</span>
     </div>
-    <div class="plant-message cool">
-      <i class="icon icon-feliz"></i>
-      <span>Yupi!!! Estou muito feliz e saudável!</span>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">
-        {{ dados.ultima_data | date : "dd/MM/yyyy HH:mm" }}
+    <div class="plant-main-info">
+      <div class="plant-photo">
+        <img ng-src="{{plant.foto.value}}">
       </div>
-      <div class="item item-avatar">
+      <h2>{{plant.nome}}</h2>
+      <span>{{ dados.ultima_data | date : "dd/MM/yyyy HH:mm" }}</span>
+    </div>
+    <ul class="plant-sensor-data">
+      <li class="item item-avatar">
         <i class="icon ion-ios-rainy"></i>{{ dados.humidade_ar }}%
-      </div>
-      <div class="item item-avatar">
+      </li>
+      <li class="item item-avatar">
         <i class="icon ion-waterdrop"></i>{{ dados.humidade_solo }}%
-      </div>
-      <div class="item item-avatar">
+      </li>
+      <li class="item item-avatar">
         <i class="icon ion-ios-sunny-outline"></i>{{ dados.luminosidade }}L
-      </div>
-      <div class="item item-avatar">
+      </li>
+      <li class="item item-avatar">
         <i class="icon ion-thermometer"></i>{{ dados.temperatura }}oC
-      </div>
-    </div>
+      </li>
+    </ul>
     <div class="list card">
-
-      <div class="item item-avatar">
-        <img ng-src="{{plant.foto.value}}" style="width: 64px; height: 64px">
-        <h2>{{plant.nome}}</h2>
-        <p><b>Localização:</b> {{plant.localizacao}}</p>
-        <p><b>Cadastro:</b> {{plant.dataCadastro | date : "dd/MM/yyyy"}}</p>
-        <p><b>Descrição:</b> {{plant.descricao}}</p>
-        <p><b>Ativa:</b> {{plant.ativa}}</p>
-        <p><b>Identificação do Sensor:</b>{{ plant.sensor }}</p>
-      </div>
+      <p><b>Localização:</b> {{plant.localizacao}}</p>
+      <p><b>Identificação do Sensor:</b>{{ plant.sensor }}</p>
     </div>
-
-    <button class="button button-block button-positive" ng-click="gravarParametros(plant.parametros)">
-      <i class="icon ion-checkmark-circled"></i> Gravar
-    </button>
   </ion-content>
 </ion-view>
