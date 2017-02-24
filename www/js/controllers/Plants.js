@@ -3,9 +3,8 @@
 
   angular
     .module('app.controllers')
-    .controller('PlantsCtrl', PlantsCtrl);
-
-    function PlantsCtrl ($scope,
+    .controller('PlantsCtrl', function (
+                         $scope,
                          PlantaService,
                          $ionicPopup,
                          $stateParams,
@@ -80,6 +79,6 @@
         $scope.load();
       }
     });
-  }
+  });
 
 })();

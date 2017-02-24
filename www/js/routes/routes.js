@@ -27,15 +27,15 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('home', {
-    url: '/home',
-    views: {
-      'tab-home': {
-        templateUrl: 'templates/home.html',
-        controller: 'HomeCtrl'
-      }
-    }
-  })
+  // .state('home', {
+  //   url: '/home',
+  //   views: {
+  //     'tab-home': {
+  //       templateUrl: 'templates/home.html',
+  //       controller: 'HomeCtrl'
+  //     }
+  //   }
+  // })
 
   .state('tab.plants', {
       url: '/plants',

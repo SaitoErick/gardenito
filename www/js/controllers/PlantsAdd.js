@@ -3,9 +3,8 @@
 
   angular
     .module('app.controllers')
-    .controller('AddCtrl', ['$cordovaDevice', AddCtrl]);
-
-    function AddCtrl ($scope,
+    .controller('AddCtrl', function (
+                      $scope,
                       PlantaService,
                       PlantaParametrosService,
                       $ionicLoading,
@@ -343,6 +342,6 @@
 
             };
         };
-    }
+    });
 
 })();
