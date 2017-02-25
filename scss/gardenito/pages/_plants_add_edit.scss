@@ -5,6 +5,24 @@
     background-color: $white;
     border: 0;
     margin: 10px 0;
+
+    &.without-bg {
+      background-color: transparent;
+    }
+
+    &.item-name-date {
+      margin-top: -10px;
+      padding-bottom: 40px;
+    }
+
+    textarea {
+      background-color: transparent;
+    }
+
+    &.parametro {
+      margin: 0;
+      border-bottom:1px solid $gray;
+    }
   }
 
   .title {

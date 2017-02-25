@@ -11,14 +11,9 @@
   </ion-nav-buttons>
   <ion-content>
     <div class="list">
-      <form>
-        <div class="item plant-title">
-          Dados da Planta
-        </div>
+      <form name="plants-add-edit">
 
-        <label class="item item-input item-stacked-label centro">
-          <!--<span class="input-label"><strong>Imagem da planta</strong></span>-->
-          <!--<input id="foto" type="text" placeholder="Caminho da foto" ng-model="plant.foto.value">-->
+        <div class="item item-input item-stacked-label centro">
           <div id="camera-button-wrapper" class="camera-button-wrapper" ng-click="tirarFoto()">
               <div class="camera"></div>
               <div ng-if="plant.foto.value" class="plant-avatar ajuda">
@@ -29,65 +24,68 @@
               </div>
               <input type="hidden" id="image-path" ng-model="plant.foto.value" />
           </div>
-        </label>
+        </div>
 
-        <label class="item item-input item-stacked-label">
+        <div class="item item-input item-stacked-label item-name-date">
           <span class="input-label"><strong>Nome da Planta</strong></span>
           <input id="nome" type="text" placeholder="" ng-model="plant.nome">
-        </label>
+          <input id="dataCadastro" type="date" placeholder="" ng-model="plant.dataCadastro" format-date>
+        </div>
 
-        <label class="item item-inputitem-stacked-label">
+        <div class="plant-param-sensor">
+          <ul>
+            <li><i class="icon icon-ar"></i></li>
+            <li><i class="icon icon-solo"></i></li>
+            <li><i class="icon icon-luminosidade"></i></li>
+            <li><i class="icon icon-temperatura"></i></li>
+          </ul>
+        </div>
+
+        <div class="item item-input item-stacked-label without-bg">
           <span class="input-label">Conte a história da sua planta</span>
           <textarea id="descricao" cols="100" rows="4" placeholder="" ng-model="plant.descricao"></textarea>
-        </label>
+        </div>
 
         <!--{{ plant }}-->
 
         <h2 class="title">CONFIGURAÇÕES</h2>
 
         <div class="parametros">
-          <div class="item item-body">
-            <div class="row">
-              <div class="col col-100"><i class="icon ion-ios-rainy"></i> Humidade do Ar</div>
-            </div>
+
+         <div class="item parametro">
             <div class="row">
               <div class="col">
-                  <label class="label-parametros">Mínimo</label>
-              </div>
-              <div class="col align-left">
-                <label class="label-parametros">{{parametros.humidade_ar_min}}</label>
+                <label class="label-parametros"><i class="icon icon-ar"></i> Humidade do Ar</label>
               </div>
             </div>
             <div class="row">
               <div class="col">
-                <div class="range range range-balanced range-background-dark">
-                    <input type="range" min="0" max="100" ng-model="parametros.humidade_ar_min">
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                  <label class="label-parametros">Máximo</label>
-              </div>
-              <div class="col">
-                  <label class="label-parametros">{{parametros.humidade_ar_max}}</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="range range range-balanced range-background-dark">
+                <div class="range range-balanced range-background-dark">
+                  <label class="label-parametros">Min: {{parametros.humidade_ar_min}}</label>
+                  <input class="param-left-space" type="range" min="0" max="100" ng-model="parametros.humidade_ar_min">
                   <input type="range" min="0" max="100" ng-model="parametros.humidade_ar_max">
+                  <label class="label-parametros">Max: {{parametros.humidade_ar_max}}</label>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="item range range-positive">
-            <i class="icon ion-waterdrop"></i>
-            <label class="label-parametros">{{parametros.humidade_solo_min}}</label>
-            <input type="range" min="0" max="100" ng-model="parametros.humidade_solo_min">
-            <input type="range" min="0" max="100" ng-model="parametros.humidade_solo_max">
-            <label class="label-parametros">{{plant.parametros.humidade_solo_max}}</label>
+          <div class="item parametro">
+            <div class="row">
+              <div class="col">
+                <label class="label-parametros"><i class="icon icon-solo"></i> Humidade do Solo</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class=" range range-positive">
+                  <label class="label-parametros">Min: {{parametros.humidade_solo_min}}</label>
+                  <input class="param-left-space" type="range" min="0" max="100" ng-model="parametros.humidade_solo_min">
+                  <input type="range" min="0" max="100" ng-model="parametros.humidade_solo_max">
+                  <label class="label-parametros">Max: {{parametros.humidade_solo_max}}</label>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="item range range-positive">
@@ -151,18 +149,9 @@
           </div>
         </div>
 
-        <div class="item item-input item-stacked-label">
-          <div class="row">
-            <div class="col">
-              <span class="input-label">Data de cadastro</span>
-              <input id="dataCadastro" type="date" placeholder="" ng-model="plant.dataCadastro" format-date>
-            </div>
-          </div>
-
-        </div>
-
         <button id="btn-gravar" class="btn-green btn-gravar" ng-click="gravar(plant, parametros)">
-          Adicionar Planta
+          <span ng-if="!plant.foto.value">Adicionar Planta</span>
+          <span ng-if="plant.foto.value">Salvar dados da Planta</span>
         </button>
         <br /><br />
         {{ parametros }}
