@@ -1,11 +1,16 @@
-angular.module('app.services')
+(function() {
+  'use strict';
 
-  .factory('PlantaService', function ($http, GardenitoConfig, RetornoServicos) {
+    angular
+    .module('app.services')
+    .factory('PlantaService', function ($http, GardenitoConfig, RetornoServicos) {
+
     //Retorna a URL padrão dos serviços do Google App Engine
     var urlBase = GardenitoConfig.urlServicos();
 
     return {
       //Funçao que retorna a lista de todas as plantas
+
       all: function (parametros, callback) {
         var retorno = RetornoServicos.retorno();
 
@@ -30,6 +35,7 @@ angular.module('app.services')
             }
           });
       },
+
       //Função para inserir ou atualizar uma planta
       addOrUpdate: function (item, callback) {
         var retorno = RetornoServicos.retorno();
@@ -127,3 +133,5 @@ angular.module('app.services')
       }
     };
   });
+
+})();

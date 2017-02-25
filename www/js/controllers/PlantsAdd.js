@@ -14,6 +14,15 @@
                       $filter,
                       $cordovaDevice) {
 
+        var device = $cordovaDevice.device;
+        console.log(device);
+
+        var deviceInformation = ionic.Platform.device();
+        console.log(deviceInformation);
+
+        var currentPlatform = ionic.Platform.platform();
+        console.log(currentPlatform);
+
         $scope.$on('$ionicView.enter', function (e) {
         $scope.plant = { "ativa": true, "dataCadastro": new Date() };
 

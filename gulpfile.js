@@ -38,7 +38,7 @@ gulp.task('sprite', function () {
   .pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: '../../scss/gardenito/_sprite.scss',
-    imgPath : './www/img/sprite.png',
+    imgPath : './../img/sprite.png',
     padding: 5
   }));
   return spriteData.pipe(gulp.dest('./www/img'));

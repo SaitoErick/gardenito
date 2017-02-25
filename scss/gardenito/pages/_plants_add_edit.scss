@@ -1,0 +1,21 @@
+.plants-add-edit {
+  background-color: $lightSage;
+
+  .item {
+    background-color: $white;
+    border: 0;
+    margin: 10px 0;
+  }
+
+  .title {
+    font-size: 15px;
+    font-weight: normal;
+    padding: 6px 0 5px 16px;
+  }
+
+  .parametros {
+    .col {
+      margin-bottom: 0;
+    }
+  }
+}
