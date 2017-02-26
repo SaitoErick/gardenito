@@ -9907,6 +9907,13 @@ a.button {
     .plants-add-edit .item.item-name-date {
       margin-top: -10px;
       padding-bottom: 40px; }
+      .plants-add-edit .item.item-name-date .input-text-name {
+        font-size: 20px;
+        text-align: center; }
+      .plants-add-edit .item.item-name-date .input-text-date {
+        font-size: 14px;
+        padding-left: 40px;
+        text-align: center; }
     .plants-add-edit .item textarea {
       background-color: transparent; }
     .plants-add-edit .item.parametro {

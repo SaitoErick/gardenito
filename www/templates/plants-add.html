@@ -6,7 +6,7 @@
   </ion-nav-buttons>
   <ion-nav-buttons side="right">
     <button class="button button-clear edit-button" ng-click="gravar(plant, parametros)">
-        Salvar
+        {{ !plant.foto.value? "Salvar" : "Editar" }}
     </button>
   </ion-nav-buttons>
   <ion-content>
@@ -27,9 +27,8 @@
         </div>
 
         <div class="item item-input item-stacked-label item-name-date">
-          <span class="input-label"><strong>Nome da Planta</strong></span>
-          <input id="nome" type="text" placeholder="" ng-model="plant.nome">
-          <input id="dataCadastro" type="date" placeholder="" ng-model="plant.dataCadastro" format-date>
+          <input class="input-text-name" id="nome" type="text" placeholder="Nome da Planta" ng-model="plant.nome">
+          <input class="input-text-date" id="dataCadastro" type="date" placeholder="" ng-model="plant.dataCadastro" format-date>
         </div>
 
         <div class="plant-param-sensor">
@@ -78,7 +77,7 @@
             </div>
             <div class="row">
               <div class="col">
-                <div class=" range range-positive">
+                <div class="range range-positive">
                   <label class="label-parametros">Min: {{parametros.humidade_solo_min}}</label>
                   <input class="param-left-space" type="range" min="0" max="100" ng-model="parametros.humidade_solo_min">
                   <input type="range" min="0" max="100" ng-model="parametros.humidade_solo_max">
@@ -88,20 +87,40 @@
             </div>
           </div>
 
-          <div class="item range range-positive">
-            <i class="icon ion-ios-sunny-outline"></i>
-            <label class="label-parametros">{{parametros.luminosidade_min}}</label>
-            <input type="range" min="0" max="100" ng-model="parametros.luminosidade_min">
-            <input type="range" min="0" max="100" ng-model="parametros.luminosidade_max">
-            <label class="label-parametros">{{parametros.luminosidade_max}}</label>
+          <div class="item parametro">
+            <div class="row">
+              <div class="col">
+                <label class="label-parametros"><i class="icon icon-temperatura"></i> Temperatura</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="range range-positive">
+                  <label class="label-parametros">Min: {{parametros.luminosidade_min}}</label>
+                  <input class="param-left-space" type="range" min="0" max="100" ng-model="parametros.luminosidade_min">
+                  <input type="range" min="0" max="100" ng-model="parametros.luminosidade_max">
+                  <label class="label-parametros">Max: {{parametros.luminosidade_max}}</label>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="item range range-positive">
-            <i class="icon ion-thermometer"></i>
-            <label class="label-parametros">{{parametros.temperatura_min}}</label>
-            <input type="range" min="0" max="100" ng-model="parametros.temperatura_min">
-            <input type="range" min="0" max="100" ng-model="parametros.temperatura_max">
-            <label class="label-parametros">{{parametros.temperatura_max}}</label>
+          <div class="item parametro">
+            <div class="row">
+              <div class="col">
+                <label class="label-parametros"><i class="icon icon-luminosidade"></i> Luminosidade</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="range range-positive">
+                  <label class="label-parametros">Min: {{parametros.temperatura_min}}</label>
+                  <input class="param-left-space" type="range" min="0" max="100" ng-model="parametros.temperatura_min">
+                  <input type="range" min="0" max="100" ng-model="parametros.temperatura_max">
+                  <label class="label-parametros">Máx: {{parametros.temperatura_max}}</label>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -150,8 +169,7 @@
         </div>
 
         <button id="btn-gravar" class="btn-green btn-gravar" ng-click="gravar(plant, parametros)">
-          <span ng-if="!plant.foto.value">Adicionar Planta</span>
-          <span ng-if="plant.foto.value">Salvar dados da Planta</span>
+          {{ !plant.foto.value? "Adicionar Planta" : "Salvar dados da Planta" }}
         </button>
         <br /><br />
         {{ parametros }}

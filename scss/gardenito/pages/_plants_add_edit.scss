@@ -13,6 +13,17 @@
     &.item-name-date {
       margin-top: -10px;
       padding-bottom: 40px;
+
+      .input-text-name {
+        font-size: 20px;
+        text-align: center;
+      }
+
+      .input-text-date {
+        font-size: 14px;
+        padding-left: 40px;
+        text-align: center;
+      }
     }
 
     textarea {

@@ -9,9 +9,11 @@
 
   <ion-content class="has-header">
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="plant in plants" type="item-text-wrap" href="#/tab/plants/{{plant.id}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right"
+                ng-repeat="plant in plants" type="item-text-wrap" href="#/tab/plants/{{plant.id}}">
         <img ng-src="{{plant.foto.value}}">
-        <h2>{{plant.nome}}</h2>
+        <h2>{{ plant.nome }}</h2>
+        <h4>{{ plant.dados[0].humidade_ar }}</h4>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
         <ion-option-button class="button-energized" ng-click="edit(plant)">
