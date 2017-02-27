@@ -171,12 +171,16 @@
   width: 150px;
   height: 150px;
   margin: 0 auto;
-  border: 3px solid #E84B5F;
+  border: 3px solid #9FCF6E;;
   -webkit-border-radius: 75px;
   -moz-border-radius: 75px;
   border-radius: 75px;
   padding: 4px;
   background: #FFF;
+}
+
+.plant-main-info .plant-photo.danger {
+  border: 3px solid #E84B5F;
 }
 
 .plant-main-info .plant-photo img {

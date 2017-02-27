@@ -23,7 +23,7 @@
       <span>{{ plant.status_message }}</span>
     </div>
     <div class="plant-main-info">
-      <div class="plant-photo">
+      <div class="plant-photo {{ plant.status }}">
         <img ng-src="{{plant.foto.value}}">
       </div>
       <h2>{{plant.nome}}</h2>
