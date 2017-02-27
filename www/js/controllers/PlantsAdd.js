@@ -14,13 +14,22 @@
                       $filter,
                       $cordovaDevice) {
 
+        var device = $cordovaDevice.device;
+        console.log(device);
+
+        var deviceInformation = ionic.Platform.device();
+        console.log(deviceInformation);
+
+        var currentPlatform = ionic.Platform.platform();
+        console.log(currentPlatform);
+
         $scope.$on('$ionicView.enter', function (e) {
         $scope.plant = { "ativa": true, "dataCadastro": new Date() };
 
         console.log("Plant ID: " + $stateParams.plantId);
 
-          //Carrega os dados e preenche os campos
-          if ($stateParams.plantId != null) {
+        //Em caso de Edição, carrega os dados de uma planta pelo seu ID
+        if ($stateParams.plantId !== null) {
             PlantaService.get($stateParams.plantId, function (retorno) {
               if (retorno.success) {
                 $scope.plant = retorno.items;
@@ -36,6 +45,7 @@
           }
         });
 
+        // Função para Tirar Foto usando Plugins (somente em Mobile Devices)
         $scope.tirarFoto = function () {
           console.log("Entrou camera");
           navigator.camera.getPicture(function (imagedata) {
@@ -86,8 +96,8 @@
             });
         };
 
+        // Função que valida os dados do Formlário
         $scope.validarDados = function (plant, parametros) {
-
             if (plant.id != null) {
               parametros = plant.dados[0];
             }
@@ -225,17 +235,17 @@
             }
 
             return true;
-        }
+        },
 
+        // Função que salva no Banco dados Editados ou Inseridos pela Primeira Vez
         $scope.gravar = function (plant, parametros) {
-            //Recupera os dados do formulário digitado
+
             var planta = {};
             console.log("Gravar dados no Banco");
             console.log(plant);
 
             if ($scope.validarDados(plant)) {
-                console.log("aqui1");
-                if (plant.id != null) {
+                if (plant.id !== null) {
                     planta = {
                         "id": plant.id,
                         "nome": plant.nome,
@@ -339,8 +349,7 @@
                         });
                     }
                 });
-
-            };
+            }
         };
     });
 

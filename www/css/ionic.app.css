@@ -9815,13 +9815,113 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.align-left {
+  text-align: left; }
+
+.align-right {
+  text-align: right; }
+
+.align-center {
+  text-align: center; }
+
+.btn-green {
+  background-color: #9fcf6e;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 15px;
+  border: 0;
+  padding: 10px 40px;
+  margin: 24px auto;
+  display: block;
+  border-radius: 20px; }
+
 .camera-button-wrapper {
   cursor: pointer;
   margin: 20px auto 10px;
   height: auto;
-  width: 185px; }
+  width: 185px;
+  position: relative; }
   .camera-button-wrapper img {
-    width: 185px; }
+    width: 185px;
+    margin: -7px; }
+  .camera-button-wrapper .camera {
+    background-image: url(./../img/sprite.png);
+    background-position: -133px 0px;
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    bottom: 25px;
+    right: -3px; }
+  .camera-button-wrapper .plant-preview {
+    border: 5px solid #fff; }
+  .camera-button-wrapper .plant-avatar {
+    border-radius: 50%;
+    display: block;
+    width: 185px;
+    height: 185px;
+    padding: 5px;
+    overflow: hidden; }
+    .camera-button-wrapper .plant-avatar.ajuda {
+      border: 5px solid #e84b5f; }
 
 .icon-back-android::before {
   font-size: 17px; }
+
+.plant-param-sensor {
+  margin-top: -40px;
+  display: block;
+  height: 85px;
+  z-index: 10;
+  position: relative; }
+  .plant-param-sensor .icon {
+    font-size: 20px; }
+  .plant-param-sensor ul {
+    display: block;
+    height: 70px;
+    margin: 0 auto;
+    width: 222px; }
+    .plant-param-sensor ul li {
+      background-color: #fff;
+      box-shadow: 0px 12px 20px -5px #ccc;
+      border: 1px solid #effbf0;
+      border-radius: 50%;
+      padding: 10px;
+      display: block;
+      height: 50px;
+      float: left;
+      margin: 0 2px;
+      text-align: center;
+      width: 50px; }
+
+.range input.param-left-space {
+  margin-left: 33px; }
+
+.plants-add-edit {
+  background-color: #effbf0; }
+  .plants-add-edit .item {
+    background-color: #fff;
+    border: 0;
+    margin: 10px 0; }
+    .plants-add-edit .item.without-bg {
+      background-color: transparent; }
+    .plants-add-edit .item.item-name-date {
+      margin-top: -10px;
+      padding-bottom: 40px; }
+      .plants-add-edit .item.item-name-date .input-text-name {
+        font-size: 20px;
+        text-align: center; }
+      .plants-add-edit .item.item-name-date .input-text-date {
+        font-size: 14px;
+        padding-left: 40px;
+        text-align: center; }
+    .plants-add-edit .item textarea {
+      background-color: transparent; }
+    .plants-add-edit .item.parametro {
+      margin: 0;
+      border-bottom: 1px solid #ddd; }
+  .plants-add-edit .title {
+    font-size: 15px;
+    font-weight: normal;
+    padding: 6px 0 5px 16px; }
+  .plants-add-edit .parametros .col {
+    margin-bottom: 0; }

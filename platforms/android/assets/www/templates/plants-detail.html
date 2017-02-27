@@ -4,70 +4,48 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view view-title="{{plant.nome}}">
-  <ion-content class="padding">
-    <div class="list card">
-
-      <div class="item item-avatar">
-        <img ng-src="{{plant.foto.value}}" style="width: 64px; height: 64px">
-        <h2>{{plant.nome}}</h2>
-        <p><b>Localização:</b> {{plant.localizacao}}</p>
-        <p><b>Cadastro:</b> {{plant.dataCadastro | date : "dd/MM/yyyy"}}</p>
-        <p><b>Descrição:</b> {{plant.descricao}}</p>
-        <p><b>Ativa:</b> {{plant.ativa}}</p>
-      </div>
-      <div class="item item-divider">
-        Parametrização
-      </div>
-      <div class="item range range-positive">
-        <i class="icon ion-ios-rainy"></i>
-        <label class="label-parametros">{{plant.parametros.humidade_ar_min}}</label>
-        <input type="range" min="0" max="100" ng-model="plant.parametros.humidade_ar_min">
-        <input type="range" min="0" max="100" ng-model="plant.parametros.humidade_ar_max">
-        <label class="label-parametros">{{plant.parametros.humidade_ar_max}}</label>
-      </div>
-      <div class="item range range-positive">
-        <i class="icon ion-waterdrop"></i>
-        <label class="label-parametros">{{plant.parametros.humidade_solo_min}}</label>
-        <input type="range" min="0" max="100" ng-model="plant.parametros.humidade_solo_min">
-        <input type="range" min="0" max="100" ng-model="plant.parametros.humidade_solo_max">
-        <label class="label-parametros">{{plant.parametros.humidade_solo_max}}</label>
-      </div>
-      <div class="item range range-positive">
-        <i class="icon ion-ios-sunny-outline"></i>
-        <label class="label-parametros">{{plant.parametros.luminosidade_min}}</label>
-        <input type="range" min="0" max="100" ng-model="plant.parametros.luminosidade_min">
-        <input type="range" min="0" max="100" ng-model="plant.parametros.luminosidade_max">
-        <label class="label-parametros">{{plant.parametros.luminosidade_max}}</label>
-      </div>
-      <div class="item range range-positive">
-        <i class="icon ion-thermometer"></i>
-        <label class="label-parametros">{{plant.parametros.temperatura_min}}</label>
-        <input type="range" min="0" max="100" ng-model="plant.parametros.temperatura_min">
-        <input type="range" min="0" max="100" ng-model="plant.parametros.temperatura_max">
-        <label class="label-parametros">{{plant.parametros.temperatura_max}}</label>
-      </div>
-      <button class="button button-block button-positive" ng-click="gravarParametros(plant.parametros)">
-        <i class="icon ion-checkmark-circled"></i> Gravar
+<ion-view class="plant-detail">
+  <!--TODO: use this code for v1
+  <ion-nav-buttons side="left">
+    <button class="button button-clear back-button" ng-click="$ionicGoBack()">
+      <i class="icon icon-back-android"></i>
+    </button>
+  </ion-nav-buttons>
+  -->
+  <ion-nav-buttons side="right">
+    <button class="button button-clear edit-button" ng-click="editPlant(plant)">
+        Editar
       </button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <div class="plant-message {{ plant.status }}">
+      <i class="icon {{ plant.icon }}"></i>
+      <span>{{ plant.status_message }}</span>
     </div>
-    <div class="list card" ng-repeat="dado in plant.dados">
-      <div class="item item-divider">
-        {{dado.ultima_data | date : "dd/MM/yyyy HH:mm"}}
+    <div class="plant-main-info">
+      <div class="plant-photo">
+        <img ng-src="{{plant.foto.value}}">
       </div>
-      <div class="item item-icon-left">
-        <i class="icon ion-ios-rainy"></i> Humidade do ar: {{dado.humidade_ar}}%
-      </div>
-      <div class="item item-icon-left">
-        <i class="icon ion-waterdrop"></i> Humidade do solo: {{dado.humidade_solo}}%
-      </div>
-      <div class="item item-icon-left">
-        <i class="icon ion-ios-sunny-outline"></i> Luminosidade: {{dado.luminosidade}}L
-      </div>
-      <div class="item item-icon-left">
-        <i class="icon ion-thermometer"></i> Temperatura: {{dado.temperatura}}oC
-      </div>
+      <h2>{{plant.nome}}</h2>
+      <span>{{ dados.ultima_data | date : "dd/MM/yyyy HH:mm" }}</span>
     </div>
-
+    <ul class="plant-sensor-data">
+      <li class="item item-avatar">
+        <i class="icon ion-ios-rainy"></i>{{ dados.humidade_ar }}%
+      </li>
+      <li class="item item-avatar">
+        <i class="icon ion-waterdrop"></i>{{ dados.humidade_solo }}%
+      </li>
+      <li class="item item-avatar">
+        <i class="icon ion-ios-sunny-outline"></i>{{ dados.luminosidade }}L
+      </li>
+      <li class="item item-avatar">
+        <i class="icon ion-thermometer"></i>{{ dados.temperatura }}oC
+      </li>
+    </ul>
+    <div class="list card">
+      <p><b>Localização:</b> {{plant.localizacao}}</p>
+      <p><b>Identificação do Sensor:</b>{{ plant.sensor }}</p>
+    </div>
   </ion-content>
 </ion-view>

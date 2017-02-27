@@ -6,104 +6,170 @@
   </ion-nav-buttons>
   <ion-nav-buttons side="right">
     <button class="button button-clear edit-button" ng-click="gravar(plant, parametros)">
-        Salvar
+        {{ !plant.foto.value? "Salvar" : "Editar" }}
     </button>
   </ion-nav-buttons>
   <ion-content>
     <div class="list">
-      <form>
-        <div class="item plant-title">
-          Dados da Planta
-        </div>
+      <form name="plants-add-edit">
 
-        <label class="item item-input item-stacked-label centro">
-          <!--<span class="input-label"><strong>Imagem da planta</strong></span>-->
-          <!--<input id="foto" type="text" placeholder="Caminho da foto" ng-model="plant.foto.value">-->
+        <div class="item item-input item-stacked-label centro">
           <div id="camera-button-wrapper" class="camera-button-wrapper" ng-click="tirarFoto()">
-              <div ng-if="plant.foto">
+              <div class="camera"></div>
+              <div ng-if="plant.foto.value" class="plant-avatar ajuda">
                 <img id="img-camera" ng-src="{{ plant.foto.value }}" border="0" />
               </div>
-              <div ng-if="!plant.foto.value">
+              <div ng-if="!plant.foto.value" class="plant-preview">
                 <img id="img-camera" src="img/new_camera_preview.png" border="0" />
               </div>
               <input type="hidden" id="image-path" ng-model="plant.foto.value" />
           </div>
-        </label>
+        </div>
 
-        <label class="item item-input item-stacked-label">
-          <span class="input-label"><strong>Nome da Planta</strong></span>
-          <input id="nome" type="text" placeholder="" ng-model="plant.nome">
-        </label>
+        <div class="item item-input item-stacked-label item-name-date">
+          <input class="input-text-name" id="nome" type="text" placeholder="Nome da Planta" ng-model="plant.nome">
+          <input class="input-text-date" id="dataCadastro" type="date" placeholder="" ng-model="plant.dataCadastro" format-date>
+        </div>
 
-        <label class="item item-inputitem-stacked-label">
+        <div class="plant-param-sensor">
+          <ul>
+            <li><i class="icon icon-ar"></i></li>
+            <li><i class="icon icon-solo"></i></li>
+            <li><i class="icon icon-luminosidade"></i></li>
+            <li><i class="icon icon-temperatura"></i></li>
+          </ul>
+        </div>
+
+        <div class="item item-input item-stacked-label without-bg">
           <span class="input-label">Conte a história da sua planta</span>
           <textarea id="descricao" cols="100" rows="4" placeholder="" ng-model="plant.descricao"></textarea>
-        </label>
+        </div>
 
         <!--{{ plant }}-->
 
-        <div class="item item-divider">
-          <h2 class="title"><strong>CONFIGURAÇÕES</strong></h2>
-        </div>
-        <div class="item range range-positive">
-          <i class="icon ion-ios-rainy"></i>
-          <label class="label-parametros">{{parametros.humidade_ar_min}}</label>
-          <input type="range" min="0" max="100" ng-model="parametros.humidade_ar_min">
-          <input type="range" min="0" max="100" ng-model="parametros.humidade_ar_max">
-          <label class="label-parametros">{{parametros.humidade_ar_max}}</label>
-        </div>
+        <h2 class="title">CONFIGURAÇÕES</h2>
 
-        <div class="item range range-positive">
-          <i class="icon ion-waterdrop"></i>
-          <label class="label-parametros">{{parametros.humidade_solo_min}}</label>
-          <input type="range" min="0" max="100" ng-model="parametros.humidade_solo_min">
-          <input type="range" min="0" max="100" ng-model="parametros.humidade_solo_max">
-          <label class="label-parametros">{{plant.parametros.humidade_solo_max}}</label>
-        </div>
+        <div class="parametros">
 
-        <div class="item range range-positive">
-          <i class="icon ion-ios-sunny-outline"></i>
-          <label class="label-parametros">{{parametros.luminosidade_min}}</label>
-          <input type="range" min="0" max="100" ng-model="parametros.luminosidade_min">
-          <input type="range" min="0" max="100" ng-model="parametros.luminosidade_max">
-          <label class="label-parametros">{{parametros.luminosidade_max}}</label>
-        </div>
-
-        <div class="item range range-positive">
-          <i class="icon ion-thermometer"></i>
-          <label class="label-parametros">{{parametros.temperatura_min}}</label>
-          <input type="range" min="0" max="100" ng-model="parametros.temperatura_min">
-          <input type="range" min="0" max="100" ng-model="parametros.temperatura_max">
-          <label class="label-parametros">{{parametros.temperatura_max}}</label>
-        </div>
-
-       <label for="identificacaoSensor" class="item item-input item-stacked-label">
-          <span class="input-label"><strong>Sensor</strong></span>
-          <input id="identificacaoSensor" type="text" placeholder="" ng-model="plant.sensor">
-        </label>
-
-        <label class="item item-input item-stacked-label">
-          <span class="input-label"><strong>Localização</strong></span>
-          <input id="localizacao" type="text" placeholder="" ng-model="plant.localizacao">
-        </label>
-
-        <label class="item item-toggle">
-          <strong>Cadastro ativo?</strong>
-          <label class="toggle toggle-assertive">
-            <input id="ativa" type="checkbox" ng-model="plant.ativa" checked>
-            <div class="track">
-              <div class="handle"></div>
+         <div class="item parametro">
+            <div class="row">
+              <div class="col">
+                <label class="label-parametros"><i class="icon icon-ar"></i> Humidade do Ar</label>
+              </div>
             </div>
-          </label>
-        </label>
+            <div class="row">
+              <div class="col">
+                <div class="range range-balanced range-background-dark">
+                  <label class="label-parametros">Min: {{parametros.humidade_ar_min}}</label>
+                  <input class="param-left-space" type="range" min="0" max="100" ng-model="parametros.humidade_ar_min">
+                  <input type="range" min="0" max="100" ng-model="parametros.humidade_ar_max">
+                  <label class="label-parametros">Max: {{parametros.humidade_ar_max}}</label>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <label class="item item-input item-stacked-label">
-          <span class="input-label"><strong>Data de cadastro</strong></span>
-          <input id="dataCadastro" type="date" placeholder="" ng-model="plant.dataCadastro" format-date>
-        </label>
+          <div class="item parametro">
+            <div class="row">
+              <div class="col">
+                <label class="label-parametros"><i class="icon icon-solo"></i> Humidade do Solo</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="range range-positive">
+                  <label class="label-parametros">Min: {{parametros.humidade_solo_min}}</label>
+                  <input class="param-left-space" type="range" min="0" max="100" ng-model="parametros.humidade_solo_min">
+                  <input type="range" min="0" max="100" ng-model="parametros.humidade_solo_max">
+                  <label class="label-parametros">Max: {{parametros.humidade_solo_max}}</label>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <button id="btn-gravar" class="button btn-gravar" ng-click="gravar(plant, parametros)">
-          Adicionar Planta
+          <div class="item parametro">
+            <div class="row">
+              <div class="col">
+                <label class="label-parametros"><i class="icon icon-temperatura"></i> Temperatura</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="range range-positive">
+                  <label class="label-parametros">Min: {{parametros.luminosidade_min}}</label>
+                  <input class="param-left-space" type="range" min="0" max="100" ng-model="parametros.luminosidade_min">
+                  <input type="range" min="0" max="100" ng-model="parametros.luminosidade_max">
+                  <label class="label-parametros">Max: {{parametros.luminosidade_max}}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item parametro">
+            <div class="row">
+              <div class="col">
+                <label class="label-parametros"><i class="icon icon-luminosidade"></i> Luminosidade</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="range range-positive">
+                  <label class="label-parametros">Min: {{parametros.temperatura_min}}</label>
+                  <input class="param-left-space" type="range" min="0" max="100" ng-model="parametros.temperatura_min">
+                  <input type="range" min="0" max="100" ng-model="parametros.temperatura_max">
+                  <label class="label-parametros">Máx: {{parametros.temperatura_max}}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       <div class="item item-input item-stacked-label">
+         <div class="row">
+           <div class="col">
+              <span class="input-label">Localização</span>
+
+           </div>
+           <div class="col">
+              <textarea id="localizacao" cols="10" rows="2" placeholder="" ng-model="plant.localizacao">
+              </textarea>
+           </div>
+         </div>
+       </div>
+
+       <div class="item item-input item-stacked-label">
+         <div class="row">
+           <div class="col">
+             <span class="input-label">Sensor</span>
+           </div>
+           <div class="col">
+             <textarea id="identificacaoSensor" cols="10" rows="2" placeholder="" ng-model="plant.sensor">
+             </textarea>
+           </div>
+         </div>
+        </div>
+
+
+        <div class="item item-input">
+          <div class="row">
+            <div class="col">
+              <span class="input-label">Cadastro ativo?</span>
+            </div>
+            <div class="col" style="position: relative">
+               <div class="item-toggle">
+                <label class="toggle toggle-success">
+                  <input id="ativa" type="checkbox" ng-model="plant.ativa" checked>
+                  <div class="track">
+                    <div class="handle"></div>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button id="btn-gravar" class="btn-green btn-gravar" ng-click="gravar(plant, parametros)">
+          {{ !plant.foto.value? "Adicionar Planta" : "Salvar dados da Planta" }}
         </button>
         <br /><br />
         {{ parametros }}

@@ -1,14 +1,18 @@
-angular.module('app.services')
+(function() {
+  'use strict';
 
-  .factory('PlantaService', function ($http, GardenitoConfig, RetornoServicos) {
+    angular
+    .module('app.services')
+    .factory('PlantaService', function ($http, GardenitoConfig, RetornoServicos) {
+
     //Retorna a URL padrão dos serviços do Google App Engine
     var urlBase = GardenitoConfig.urlServicos();
 
     return {
+
       //Funçao que retorna a lista de todas as plantas
       all: function (parametros, callback) {
         var retorno = RetornoServicos.retorno();
-
         $http.get(urlBase + 'planta/v1/list', parametros)
           .success(function (response) {
             retorno.success = true;
@@ -30,6 +34,7 @@ angular.module('app.services')
             }
           });
       },
+
       //Função para inserir ou atualizar uma planta
       addOrUpdate: function (item, callback) {
         var retorno = RetornoServicos.retorno();
@@ -78,6 +83,7 @@ angular.module('app.services')
             });
         }
       },
+
       //Função para excluir uma panta
       remove: function (plantId, callback) {
         var retorno = RetornoServicos.retorno();
@@ -101,9 +107,10 @@ angular.module('app.services')
             }
           });
       },
+
+      // Função que retorna os dados de uma Planta pelo seu ID
       get: function (plantId, callback) {
         var retorno = RetornoServicos.retorno();
-
         $http.get(urlBase + 'planta/v1/get/' + plantId)
           .success(function (response) {
             retorno.success = true;
@@ -123,7 +130,9 @@ angular.module('app.services')
             if (typeof (callback) === "function") {
               callback(retorno);
             }
-          });
+         });
       }
     };
   });
+
+})();
