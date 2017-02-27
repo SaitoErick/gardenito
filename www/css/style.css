@@ -1,29 +1,26 @@
 /* Empty. Add your own CSS if you like */
 
 .centro {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-box-align: center;
-    -webkit-box-pack: center;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
 }
 
 .label-parametros {
-    width: 24px;
+  width: 24px;
 }
 
-/* Icon Fonts */
-@charset "UTF-8";
 
+/* Icon Fonts */
+
+@charset "UTF-8";
 @font-face {
   font-family: "untitled-font-4";
-  src:url("fonts/untitled-font-4.eot");
-  src:url("fonts/untitled-font-4.eot?#iefix") format("embedded-opentype"),
-    url("fonts/untitled-font-4.woff") format("woff"),
-    url("fonts/untitled-font-4.ttf") format("truetype"),
-    url("fonts/untitled-font-4.svg#untitled-font-4") format("svg");
+  src: url("fonts/untitled-font-4.eot");
+  src: url("fonts/untitled-font-4.eot?#iefix") format("embedded-opentype"), url("fonts/untitled-font-4.woff") format("woff"), url("fonts/untitled-font-4.ttf") format("truetype"), url("fonts/untitled-font-4.svg#untitled-font-4") format("svg");
   font-weight: normal;
   font-style: normal;
-
 }
 
 [data-icon]:before {
@@ -55,108 +52,122 @@
 .icon-solo:before {
   content: "\61";
 }
+
 .icon-luminosidade:before {
   content: "\62";
 }
+
 .icon-edit:before {
   content: "\63";
 }
+
 .icon-cancel:before {
   content: "\65";
 }
+
 .icon-camera:before {
   content: "\66";
 }
+
 .icon-back-android:before {
   content: "\67";
 }
+
 .icon-ar:before {
   content: "\68";
 }
+
 .icon-temperatura:before {
   content: "\64";
 }
+
 .icon-back-ios:before {
   content: "\69";
 }
+
 .icon-chateado:before {
   content: "\6a";
 }
+
 .icon-feliz:before {
   content: "\6b";
 }
+
 .icon-triste:before {
   content: "\6c";
 }
 
-.bar .button.button-clear .icon:before, .bar .button.button-clear.icon:before, .bar .button.button-clear.icon-left:before, .bar .button.button-clear.icon-right:before, .bar button.button-clear .icon:before, .bar button.button-clear.icon:before, .bar button.button-clear.icon-left:before, .bar button.button-clear.icon-right:before
-{
+.bar .button.button-clear .icon:before,
+.bar .button.button-clear.icon:before,
+.bar .button.button-clear.icon-left:before,
+.bar .button.button-clear.icon-right:before,
+.bar button.button-clear .icon:before,
+.bar button.button-clear.icon:before,
+.bar button.button-clear.icon-left:before,
+.bar button.button-clear.icon-right:before {
   font-size: 20px;
   line-height: 30px;
 }
 
-/* Reset enviroment */
-/*.scroll-content.padding
-{
-  padding-top: 0;
-}*/
-
-.bar.bar-stable {
-   border-color: transparent;
-   background-color: #FFF;
+.clear {
+  clear: both;
 }
 
-.bar.bar-light
-{
+
+/* Reset enviroment */
+
+.bar.bar-stable {
+  border-color: transparent;
+  background-color: #FFF;
+}
+
+.bar.bar-light {
   border-color: transparent;
 }
 
-.bar-stable .button.button-clear, .bar-light .button.button-clear  {
-    color: #898989;
-    font-size: 15px;
+.bar-stable .button.button-clear,
+.bar-light .button.button-clear {
+  color: #898989;
+  font-size: 15px;
 }
 
+
 /* Plants Details */
-.plant-detail{
+
+.plant-detail {
   background-color: #EFFBF0;
 }
 
-.plant-message
-{
-    height: 25px;
-    color: #FFF;
-    line-height: 20px;
-    font-size: 15px;
-    padding: 0 5px;
-    margin: -10px -10px 0;
+.plant-message {
+  height: 25px;
+  color: #FFF;
+  line-height: 20px;
+  font-size: 15px;
+  padding: 0 5px;
+  margin: -10px -10px 0;
 }
 
-.plant-message.danger
-{
-    background-color: #E84B5F;
+.plant-message.danger {
+  background-color: #E84B5F;
 }
 
-.plant-message.cool
-{
-    background-color: #9FCF6E;
+.plant-message.cool {
+  background-color: #9FCF6E;
 }
 
-.plant-message .icon:before
-{
+.plant-message .icon:before {
   line-height: 25px;
   font-size: 15px;
 }
 
-.plant-main-info
-{
-  height: 200px;
+.plant-main-info {
+  height: 240px;
   background-color: #FFF;
   margin: 0 -10px;
   padding: 10px;
 }
 
-.plant-photo
-{
+.plant-main-info .plant-photo {
   width: 150px;
   height: 150px;
   margin: 0 auto;
@@ -165,14 +176,73 @@
   -moz-border-radius: 75px;
   border-radius: 75px;
   padding: 4px;
-  background: #000;
+  background: #FFF;
 }
 
-.plant-photo img
-{
-  width: 130px;
-  height: 130px;
-  -webkit-border-radius: 65px;
-  -moz-border-radius: 65px;
-  border-radius: 65px;
+.plant-main-info .plant-photo img {
+  width: 136px;
+  height: 136px;
+  border-radius: 68px;
+}
+
+.plant-main-info h2 {
+  font-size: 26px;
+  text-align: center;
+  margin: 5px 0 2px;
+  color: #474747;
+}
+
+.plant-main-info span {
+  font-size: 14px;
+  display: block;
+  text-align: center;
+  color: #898989;
+}
+
+ul.plant-sensor-data {
+  height: 60px;
+  margin: 5px;
+}
+
+ul.plant-sensor-data li {
+  float: left;
+  width: 75px;
+  height: 35px;
+  padding: 10px 0;
+  border-radius: 35px;
+  margin: 0 5px;
+  border: 0;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+ul.plant-sensor-data li .icon:before {
+  line-height: 25px;
+  font-size: 20px;
+  display: block;
+  width: 25px;
+  margin: 0 auto;
+}
+
+ul.plant-sensor-data li span {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+ul.plant-sensor-data li .icon-ar {
+  color: #4A90E2;
+}
+
+ul.plant-sensor-data li .icon-solo {
+  color: #8B572A;
+}
+
+ul.plant-sensor-data li .icon-luminosidade {
+  color: #F5A623;
+}
+
+ul.plant-sensor-data li .icon-temperatura {
+  color: #EF4E62;
 }
