@@ -30,27 +30,30 @@
       <span>{{ dados.ultima_data | date : "dd/MM/yyyy HH:mm" }}</span>
     </div>
     <ul class="plant-sensor-data">
-      <li class="item item-avatar">
+      <li class="item item-avatar {{ dados.humidade_ar_status }}">
         <i class="icon icon-ar"></i>
         <span>{{ dados.humidade_ar }} %</span>
       </li>
-      <li class="item item-avatar">
+      <li class="item item-avatar central {{ dados.humidade_solo_status }}">
         <i class="icon icon-solo"></i>
         <span>{{ dados.humidade_solo }} %</span>
       </li>
-      <li class="item item-avatar">
+      <li class="item item-avatar central {{ dados.luminosidade_status }}">
         <i class="icon icon-luminosidade"></i>
         <span>{{ dados.luminosidade }} L</span>
       </li>
-      <li class="item item-avatar">
+      <li class="item item-avatar {{ dados.temperatura_status }}">
         <i class="icon icon-temperatura"></i>
-        <span>{{ dados.temperatura }} oC</span>
+        <span>{{ dados.temperatura }} °C</span>
       </li>
     </ul>
     <div class="clear">
-    <div class="list card">
-      <p><b>Localização:</b> {{plant.localizacao}}</p>
-      <p><b>Identificação do Sensor:</b>{{ plant.sensor }}</p>
-    </div>
+      <div class="plant-description">
+        {{ plant.descricao }}
+      </div>
+      <ul class="plant-info">
+        <li><span class="info-header">Localização:</span><span class="localizacao">{{plant.localizacao}}</span></li>
+        <li><span class="info-header">Identificação do Sensor:</span><span class="sensor">{{ plant.sensor }}</span></li>
+      </ul>
   </ion-content>
 </ion-view>

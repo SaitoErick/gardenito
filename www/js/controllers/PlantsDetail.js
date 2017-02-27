@@ -8,20 +8,27 @@ angular.module('app.controllers')
       var dados = plant.dados[0];
       var parametros = plant.parametros;
 
-      if (dados.humidade_ar < parametros.humidade_ar_min || dados.humidade_ar > parametros.humidade_ar_max) {
-        danger = true;
-      }
+      if(parametros != null)
+      {
+        if (dados.humidade_ar < parametros.humidade_ar_min || dados.humidade_ar > parametros.humidade_ar_max) {
+          danger = true;
+          dados.humidade_ar_status = "danger";
+        }
 
-      if (dados.humidade_solo < parametros.humidade_solo_min || dados.humidade_solo > parametros.humidade_solo_max) {
-        danger = true;
-      }
+        if (dados.humidade_solo < parametros.humidade_solo_min || dados.humidade_solo > parametros.humidade_solo_max) {
+          danger = true;
+          dados.humidade_solo_status = "danger";
+        }
 
-      if (dados.luminosidade < parametros.luminosidade_min || dados.luminosidade > parametros.luminosidade_max) {
-        danger = true;
-      }
+        if (dados.luminosidade < parametros.luminosidade_min || dados.luminosidade > parametros.luminosidade_max) {
+          danger = true;
+          dados.luminosidade_status = "danger";
+        }
 
-      if (dados.temperatura < parametros.temperatura_min || dados.temperatura > parametros.temperatura_max) {
-        danger = true;
+        if (dados.temperatura < parametros.temperatura_min || dados.temperatura > parametros.temperatura_max) {
+          danger = true;
+          dados.temperatura_status = "danger";
+        }
       }
 
       if (danger) {

@@ -201,18 +201,29 @@
 
 ul.plant-sensor-data {
   height: 60px;
-  margin: 5px;
+  width: 305px;
+  margin: 0 auto;
 }
 
 ul.plant-sensor-data li {
   float: left;
-  width: 75px;
+  width: 68px;
   height: 35px;
   padding: 10px 0;
   border-radius: 35px;
-  margin: 0 5px;
+  margin: 0 3px;
   border: 0;
   box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+ul.plant-sensor-data li.danger {
+  border: 3px solid #E84B5F;
+  width: 71px;
+  height: 38px;
+}
+
+ul.plant-sensor-data li.central {
+  margin-top: 10px;
 }
 
 ul.plant-sensor-data li .icon:before {
@@ -229,6 +240,7 @@ ul.plant-sensor-data li span {
   text-align: center;
   font-size: 18px;
   margin-top: 5px;
+  color: #898989;
 }
 
 ul.plant-sensor-data li .icon-ar {
@@ -245,4 +257,44 @@ ul.plant-sensor-data li .icon-luminosidade {
 
 ul.plant-sensor-data li .icon-temperatura {
   color: #EF4E62;
+}
+
+.plant-description {
+  padding: 30px;
+  font-size: 16px;
+  color: #898989;
+}
+
+ul.plant-info li {
+  display: block;
+  background-color: #FFFFFF;
+  border-top: 1px solid #c8c7cc;
+  border-bottom: 1px solid #c8c7cc;
+  margin: 0px -10px 5px;;
+  padding: 15px;
+  clear: both;
+}
+
+ul.plant-info li span {
+  font-size: 15px;
+  display: inline-block;
+  padding-left: 10px; 
+  text-align: right;
+  vertical-align: top;
+}
+
+ul.plant-info li span.info-header {
+  font-weight: bold;
+  padding: 0;
+  text-align: left;
+}
+
+ul.plant-info li span.localizacao
+{
+  width: 200px;
+}
+
+ul.plant-info li span.sensor
+{
+  width: 120px;
 }
