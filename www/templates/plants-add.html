@@ -20,10 +20,11 @@
                 <img id="img-camera" ng-src="{{ plant.foto.value }}" border="0" />
               </div>
               <div ng-if="!plant.foto.value" class="plant-preview">
-                <img id="img-camera" src="img/new_camera_preview.png" border="0" />
+                <img id="img-camera" src="img/new_camera_preview.png"  border="0" />
               </div>
               <input type="hidden" id="image-path" ng-model="plant.foto.value" />
           </div>
+         plant.foto.value:  {{ plant.foto.value }}
         </div>
 
         <div class="item item-input item-stacked-label item-name-date">
@@ -171,6 +172,8 @@
         <button id="btn-gravar" class="btn-green btn-gravar" ng-click="gravar(plant, parametros)">
           {{ !plant.foto.value? "Adicionar Planta" : "Salvar dados da Planta" }}
         </button>
+        <br /><br />
+        {{ plant }}
         <br /><br />
         {{ parametros }}
       </form>
