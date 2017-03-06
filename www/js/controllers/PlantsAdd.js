@@ -15,19 +15,17 @@
                       $q,
                       $cordovaDevice) {
 
-        var device = $cordovaDevice.device;
-        console.log(device);
+        // var device = $cordovaDevice.device;
+        // console.log(device);
 
-        var deviceInformation = ionic.Platform.device();
-        console.log(deviceInformation);
+        // var deviceInformation = ionic.Platform.device();
+        // console.log(deviceInformation);
 
-        var currentPlatform = ionic.Platform.platform();
-        console.log(currentPlatform);
+        // var currentPlatform = ionic.Platform.platform();
+        // console.log(currentPlatform);
 
         $scope.$on('$ionicView.enter', function (e) {
         $scope.plant = { "ativa": true, "dataCadastro": new Date() };
-
-        console.log("Plant ID: " + $stateParams.plantId);
 
         //Em caso de Edição, carrega os dados de uma planta pelo seu ID
         if ($stateParams.plantId !== null) {
@@ -48,7 +46,7 @@
 
         // Função para Tirar Foto usando Plugins (somente em Mobile Devices)
         $scope.tirarFoto = function () {
-          console.log("Entrou camera");
+          // console.log("Entrou camera");
           navigator.camera.getPicture(function (imagedata) {
 
             if (typeof (imagedata) !== "undefined" && imagedata !== "") {
@@ -251,10 +249,10 @@
         $scope.gravar = function (plant, parametros) {
 
             var planta = {};
-            console.log("Dados que vieram do formulario: Plant");
-            console.log(plant);
-            console.log("Dados que vieram do formulario: Parametros");
-            console.log(parametros);
+            // console.log("Dados que vieram do formulario: Plant");
+            // console.log(plant);
+            // console.log("Dados que vieram do formulario: Parametros");
+            // console.log(parametros);
 
             if(!plant.foto){
               plant.foto = {
@@ -267,7 +265,7 @@
 
         function insertPlant(plant, parametros){
             if ($scope.validarDados(plant, parametros)) {
-              console.log('insertPlant');
+              // console.log('insertPlant');
 
                 if (plant.id !== null) {
                     plant = {
@@ -298,7 +296,7 @@
 
                 PlantaService.addOrUpdate(plant, function (retorno) {
                     if (retorno.success) {
-                        console.log(retorno);
+                        // console.log(retorno);
                         plant.id = retorno.items.id;
                         var alerta = $ionicPopup.alert({
                             title: 'Sucesso',
@@ -354,7 +352,7 @@
 
             PlantaParametrosService.addOrUpdate(parametros, function (retorno) {
                 if (retorno.success) {
-                    console.log(retorno);
+                    // console.log(retorno);
                     plant.parametros.id = retorno.items.id;
                     var alerta = $ionicPopup.alert({
                         title: 'Sucesso',
@@ -380,7 +378,7 @@
 
         function insertPlantParameters(plant, parametros) {
             if ($scope.validarDados(plant, parametros)) {
-                console.log('insertParameters');
+                // console.log('insertParameters');
 
                 if (plant.parametros !== null) {
                     plant.parametros = {
@@ -411,7 +409,7 @@
 
                  PlantaParametrosService.addOrUpdate(plant, function (retorno) {
                     if (retorno.success) {
-                        console.log(retorno);
+                        // console.log(retorno);
                         var alerta = $ionicPopup.alert({
                             title: 'Sucesso',
                             template: 'Tudo certo! Dados gravados com sucesso!'
