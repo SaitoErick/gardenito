@@ -24,7 +24,7 @@
     </div>
     <div class="plant-main-info">
       <div class="plant-photo {{ plant.status }}">
-        <img ng-src="{{plant.foto.value}}">
+        <img ng-src="{{ plant.foto.value }}" id="img-camera" />
       </div>
       <h2>{{plant.nome}}</h2>
       <span>{{ dados.ultima_data | date : "dd/MM/yyyy HH:mm" }}</span>

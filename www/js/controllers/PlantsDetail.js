@@ -1,15 +1,22 @@
-'use strict';
-angular.module('app.controllers')
+(function() {
+  'use strict';
 
-  .controller('PlantsDetailCtrl', function ($scope, PlantaService, PlantaParametrosService, $stateParams, $ionicPopup, $state) {
+  angular
+    .module('app.controllers')
+    .controller('PlantsDetailCtrl', function (
+                      $scope,
+                      PlantaService,
+                      PlantaParametrosService,
+                      $stateParams,
+                      $ionicPopup,
+                      $state) {
 
-    $scope.setPlantStatus = function (plant) {
+      $scope.setPlantStatus = function (plant) {
       var danger = false;
       var dados = plant.dados[0];
       var parametros = plant.parametros;
 
-      if(parametros != null)
-      {
+      if(parametros !== null) {
         if (dados.humidade_ar < parametros.humidade_ar_min || dados.humidade_ar > parametros.humidade_ar_max) {
           danger = true;
           dados.humidade_ar_status = "danger";
@@ -44,14 +51,17 @@ angular.module('app.controllers')
 
     PlantaService.get($stateParams.plantId, function (retorno) {
       if (retorno.success) {
-        // console.log(retorno.items.dados);
-        $scope.dados = retorno.items.dados[0];
+        // console.log(retorno);
         $scope.plant = retorno.items;
         $scope.setPlantStatus($scope.plant);
+        if(retorno.items.dados){
+          $scope.dados = retorno.items.dados[0];
+        }
       } else {
+        // console.log(retorno.erro.mensagem.error.message);
         $ionicPopup.alert({
           title: 'Erro ao recuperar os dados',
-          template: 'Desculpe, mas ocorreu um erro ao tentar recuperar a planta. Mensagem: ' + retorno.erro.mensagem
+          template: 'Desculpe, mas ocorreu um erro ao tentar recuperar a planta. Mensagem: ' + retorno.erro.mensagem.error.message
         });
       }
     });
@@ -63,9 +73,8 @@ angular.module('app.controllers')
     }
 
     $scope.gravarParametros = function (parametros) {
-      console.log(parametros);
       if ($scope.validarDados(parametros)) {
-        if (parametros.id != null) {
+        if (parametros.id !== null) {
           parametros = {
             "id": parametros.id,
             "idPlanta": parametros.idPlanta,
@@ -100,7 +109,8 @@ angular.module('app.controllers')
             });
           }
         });
-
       };
     };
   });
+
+})();

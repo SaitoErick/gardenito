@@ -12,7 +12,6 @@
                       $stateParams,
                       $ionicPopup,
                       $filter,
-                      $q,
                       $cordovaDevice) {
 
         // var device = $cordovaDevice.device;
