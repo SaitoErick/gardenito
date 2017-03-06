@@ -12,6 +12,7 @@
                       $stateParams,
                       $ionicPopup,
                       $filter,
+                      $q,
                       $cordovaDevice) {
 
         var device = $cordovaDevice.device;
@@ -146,6 +147,7 @@
                 return false;
             }
 
+
             if (typeof (parametros.humidade_ar_min) == "undefined") {
                 $ionicPopup.alert({
                   title: 'Oops',
@@ -255,14 +257,20 @@
             console.log(parametros);
 
             if(!plant.foto){
-              plant.foto = 'img/default.jpg';
+              plant.foto = {
+                  "value" : 'img/default.jpg'
+                };
             }
 
+            insertPlant(plant, parametros);
+        };
+
+        function insertPlant(plant, parametros){
             if ($scope.validarDados(plant, parametros)) {
-              console.log('validarDados 1');
+              console.log('insertPlant');
 
                 if (plant.id !== null) {
-                    planta = {
+                    plant = {
                         "id": plant.id,
                         "nome": plant.nome,
                         "descricao": plant.descricao,
@@ -275,7 +283,7 @@
                         "sensor": plant.sensor
                     };
                 } else {
-                    planta = {
+                    plant = {
                         "nome": plant.nome,
                         "descricao": plant.descricao,
                         "localizacao": plant.localizacao,
@@ -288,10 +296,10 @@
                     };
                 }
 
-                // Salva ou atualiza no Banco os Dados da Planta
-                // Que é salvo os parametros da planta enviados pelo Sensor
-                PlantaService.addOrUpdate(planta, function (retorno) {
+                PlantaService.addOrUpdate(plant, function (retorno) {
                     if (retorno.success) {
+                        console.log(retorno);
+                        plant.id = retorno.items.id;
                         var alerta = $ionicPopup.alert({
                             title: 'Sucesso',
                             template: 'Tudo certo! Dados gravados com sucesso!'
@@ -309,63 +317,121 @@
                         });
                         return false;
                     }
+
+                    insertParameters(plant, parametros);
                 });
             }
+        }
 
-            // if ($scope.validarDados(plant, parametros)) {
-            //     console.log('validarDados 2');
-            //     if (plant.parametros.id !== null) {
-            //         plant.parametros = {
-            //           "id": parametros.id,
-            //           "idPlanta": plant.parametros.idPlanta,
-            //           "humidade_ar_max": parametros.humidade_ar_max,
-            //           "humidade_ar_min": parametros.humidade_ar_min,
-            //           "humidade_solo_max": parametros.humidade_solo_max,
-            //           "humidade_solo_min": parametros.humidade_solo_min,
-            //           "luminosidade_max": parametros.luminosidade_max,
-            //           "luminosidade_min": parametros.luminosidade_min,
-            //           "temperatura_max": parametros.temperatura_max,
-            //           "temperatura_min": parametros.temperatura_min
-            //         };
-            //     } else {
-            //         plant.parametros= {
-            //           "idPlanta": plant.parametros.idPlanta,
-            //           "humidade_ar_max": parametros.humidade_ar_max,
-            //           "humidade_ar_min": parametros.humidade_ar_min,
-            //           "humidade_solo_max": parametros.humidade_solo_max,
-            //           "humidade_solo_min": parametros.humidade_solo_min,
-            //           "luminosidade_max": parametros.luminosidade_max,
-            //           "luminosidade_min": parametros.luminosidade_min,
-            //           "temperatura_max": parametros.temperatura_max,
-            //           "temperatura_min": parametros.temperatura_min
-            //         };
-            //     }
+        function insertParameters(plant, parametros){
 
-            //     console.log("Dados do formulário: ");
-            //     console.log(parametros);
+            if (parametros.id !== null) {
+                parametros = {
+                    "id": parametros.id,
+                    "idPlanta": plant.id,
+                    "humidade_ar_max": parametros.humidade_ar_max,
+                    "humidade_ar_min": parametros.humidade_ar_min,
+                    "humidade_solo_max": parametros.humidade_solo_max,
+                    "humidade_solo_min": parametros.humidade_solo_min,
+                    "luminosidade_max": parametros.luminosidade_max,
+                    "luminosidade_min": parametros.luminosidade_min,
+                    "temperatura_max": parametros.temperatura_max,
+                    "temperatura_min": parametros.temperatura_min
+                }
+            } else {
+                parametros = {
+                    "idPlanta": plant.id,
+                    "humidade_ar_max": parametros.humidade_ar_max,
+                    "humidade_ar_min": parametros.humidade_ar_min,
+                    "humidade_solo_max": parametros.humidade_solo_max,
+                    "humidade_solo_min": parametros.humidade_solo_min,
+                    "luminosidade_max": parametros.luminosidade_max,
+                    "luminosidade_min": parametros.luminosidade_min,
+                    "temperatura_max": parametros.temperatura_max,
+                    "temperatura_min": parametros.temperatura_min
+                }
+            }
 
-            //     // Salva ou Edita os parametros inseridos para analise da planta.
-            //     // Parametros de Analise são diferentes dos Parametros enviados pelo Sensor
-            //     PlantaParametrosService.addOrUpdate(parametros, function (retorno) {
-            //         if (retorno.success) {
-            //             var alerta = $ionicPopup.alert({
-            //                 title: 'Sucesso',
-            //                 template: 'Tudo certo! Dados gravados com sucesso!'
-            //             });
+            PlantaParametrosService.addOrUpdate(parametros, function (retorno) {
+                if (retorno.success) {
+                    console.log(retorno);
+                    plant.parametros.id = retorno.items.id;
+                    var alerta = $ionicPopup.alert({
+                        title: 'Sucesso',
+                        template: 'Tudo certo! Dados gravados com sucesso!'
+                    });
 
-            //             alerta.then(function (res) {
-            //                 $stateParams.plantId = null;
-            //                 $state.go('tab.plants', { reload: true });
-            //             });
-            //         } else {
-            //             $ionicPopup.alert({
-            //                 title: 'Erro ao gravar os dados',
-            //                 template: 'Desculpe, mas ocorreu um erro ao tentar gravar os dados da planta. Mensagem: ' + retorno.erro.mensagem
-            //             });
-            //         }
-            //     });
-            // }
-        };
+                    alerta.then(function (res) {
+                        $stateParams.plantId = null;
+                        $state.go('tab.plants', { reload: true });
+                    });
+                } else {
+                    console.log(retorno.erro.mensagem);
+                    $ionicPopup.alert({
+                        title: 'Erro ao gravar os dados',
+                        template: 'Desculpe, mas ocorreu um erro ao tentar gravar os dados da planta. Mensagem: ' + retorno.erro.mensagem
+                    });
+                    return false;
+                }
+
+                insertPlantParameters(plant, parametros);
+            });
+        }
+
+        function insertPlantParameters(plant, parametros) {
+            if ($scope.validarDados(plant, parametros)) {
+                console.log('insertParameters');
+
+                if (plant.parametros !== null) {
+                    plant.parametros = {
+                      "id": parametros.id,
+                      "idPlanta": plant.id,
+                      "humidade_ar_max": parametros.humidade_ar_max,
+                      "humidade_ar_min": parametros.humidade_ar_min,
+                      "humidade_solo_max": parametros.humidade_solo_max,
+                      "humidade_solo_min": parametros.humidade_solo_min,
+                      "luminosidade_max": parametros.luminosidade_max,
+                      "luminosidade_min": parametros.luminosidade_min,
+                      "temperatura_max": parametros.temperatura_max,
+                      "temperatura_min": parametros.temperatura_min
+                    };
+                } else {
+                    plant.parametros = {
+                      "idPlanta": plant.id,
+                      "humidade_ar_max": parametros.humidade_ar_max,
+                      "humidade_ar_min": parametros.humidade_ar_min,
+                      "humidade_solo_max": parametros.humidade_solo_max,
+                      "humidade_solo_min": parametros.humidade_solo_min,
+                      "luminosidade_max": parametros.luminosidade_max,
+                      "luminosidade_min": parametros.luminosidade_min,
+                      "temperatura_max": parametros.temperatura_max,
+                      "temperatura_min": parametros.temperatura_min
+                    };
+                }
+
+                 PlantaParametrosService.addOrUpdate(plant, function (retorno) {
+                    if (retorno.success) {
+                        console.log(retorno);
+                        var alerta = $ionicPopup.alert({
+                            title: 'Sucesso',
+                            template: 'Tudo certo! Dados gravados com sucesso!'
+                        });
+
+                        alerta.then(function (res) {
+                            $stateParams.plantId = null;
+                            $state.go('tab.plants', { reload: true });
+                        });
+                    } else {
+                        console.log(retorno.erro.mensagem);
+                        $ionicPopup.alert({
+                            title: 'Erro ao gravar os dados',
+                            template: 'Desculpe, mas ocorreu um erro ao tentar gravar os dados da planta. Mensagem: ' + retorno.erro.mensagem
+                        });
+                        return false;
+                    }
+                });
+            }
+        }
     });
 
 })();
