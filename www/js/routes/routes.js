@@ -49,6 +49,7 @@ angular.module('app.routes', [])
     })
     .state('tab.plants-detail', {
       url: '/plants/:plantId',
+      params: {plantId: null},
       views: {
         'tab-plants': {
           templateUrl: 'templates/plants-detail.html',

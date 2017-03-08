@@ -58,7 +58,20 @@
 
       PlantaService.all(null, function (retorno) {
         if (retorno.success) {
-          $scope.plants = retorno.items;
+          // $scope.plants = retorno.items;
+
+          if(retorno.items)
+          {
+            var plantId = retorno.items[0].id;
+            $state.go('tab.plants-detail', { plantId: plantId });
+          }
+          else
+          {
+            $state.go('tab.add', { plantId: plantId });
+          }
+
+
+
         } else {
           $ionicPopup.alert({
             title: 'Erro ao listar as plantas',
