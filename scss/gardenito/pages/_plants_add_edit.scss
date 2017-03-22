@@ -40,6 +40,11 @@
   }
 }
 
+.padding
+{
+  padding-top: 0;
+}
+
 .plants-add-edit,
 .plant-detail {
   background-color: #EFFBF0;
@@ -62,29 +67,28 @@
     }
   }
   .plant-main-info {
-    height: 310px;
+    height: 300px;
     background-color: #FFF;
     margin: 0 -10px;
     padding: 10px;
-  }
-  .plant-main-info {
+  
     .plant-photo {
-      width: 150px;
-      height: 150px;
+      width: 185px;
+      height: 185px;
       margin: 0 auto;
       border: 3px solid #9FCF6E;
-      -webkit-border-radius: 75px;
-      -moz-border-radius: 75px;
-      border-radius: 75px;
+      border-radius: 50%;
       padding: 4px;
       background: #FFF;
       &.danger {
         border: 3px solid #E84B5F;
       }
       img {
-        width: 185px;
-        height: 185px;
-        border-radius: 68px;
+       max-width: 185px;
+       max-height: 185px;
+       border-radius: 50%;
+       display: block;
+       width: 100%;
       }
     }
     h2 {
@@ -100,6 +104,28 @@
       color: #898989;
     }
   }
+
+  .item-name
+  {
+   position: relative; 
+
+   input
+   {
+    text-align: center;
+    font-size: 20px;
+    color: #444;
+   }
+
+   i
+   {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 16px;
+      color: #999;
+   }
+  }
+
   ul.plant-sensor-data {
     height: 60px;
     width: 305px;
@@ -109,7 +135,7 @@
       width: 68px;
       height: 35px;
       padding: 10px 0;
-      border-radius: 35px;
+      border-radius: 50%;
       margin: 0 3px;
       border: 0;
       box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);

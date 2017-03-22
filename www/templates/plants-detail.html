@@ -2,7 +2,7 @@
   <ion-nav-buttons side="right">
     <button class="button button-clear edit-button" ng-click="editPlant(plant)">
         Editar
-      </button>
+    </button>
   </ion-nav-buttons>
   <ion-content class="padding">
     <div class="plant-message {{ plant.status }}">
@@ -10,7 +10,7 @@
       <span>{{ plant.status_message }}</span>
     </div>
     <div class="plant-main-info">
-      <div class="plant-photo {{ plant.status }}">
+      <div class="plant-photo plant-avatar {{ plant.status }}">
         <img ng-src="{{ plant.foto.value }}" id="img-camera" />
       </div>
       <h2>{{plant.nome}}</h2>

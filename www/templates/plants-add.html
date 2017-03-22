@@ -1,4 +1,9 @@
 <ion-view view-title="" class="plants-add-edit">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear edit-button" ng-click="editPlant(plant)">
+        <i class="icon icon-cancel"></i>
+    </button>
+  </ion-nav-buttons>
   <ion-content class="padding">
     <form name="plants-add-edit">
       <div class="plant-main-info">
@@ -12,19 +17,11 @@
           </div>
           <input type="hidden" id="image-path" ng-model="plant.foto.value" />
         </div>
-        <div class="item item-input item-stacked-label item-name-date">
+        <div class="item item-input item-stacked-label item-name">
           <input class="input-text-name" id="nome" type="text" placeholder="Nome da Planta" ng-model="plant.nome">
+          <i class="icon icon-edit"></i>
         </div>
       </div>
-      <div class="plant-param-sensor">
-        <ul>
-          <li><i class="icon icon-ar"></i></li>
-          <li><i class="icon icon-solo"></i></li>
-          <li><i class="icon icon-luminosidade"></i></li>
-          <li><i class="icon icon-temperatura"></i></li>
-        </ul>
-      </div>
-
       <div class="item item-input item-stacked-label without-bg">
         <span class="input-label">Conte a história da sua planta</span>
         <textarea id="descricao" cols="100" rows="4" placeholder="" ng-model="plant.descricao"></textarea>
