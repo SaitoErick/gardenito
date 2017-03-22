@@ -7,6 +7,7 @@
   <title>Gardenito App</title>
 
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/ionic.app.css">
   <link href="css/style.css" rel="stylesheet">
 
   <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -17,10 +18,7 @@
   <script src="lib/ionic/js/ionic.bundle.js"></script>
   <script src="lib/jquery/dist/jquery.min.js"></script>
 
-  <!-- cordova script (this will be a 404 during development) -->
-  <script src="cordova.js"></script>
-
-  <!-- your app's js -->
+    <!-- your app's js -->
   <script src="js/app.js"></script>
   <script src="js/config.js"></script>
 
@@ -43,11 +41,16 @@
   <!-- Diretivas -->
   <script src="js/directives/directives.js"></script>
   <script src="js/directives/formatDate.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+  <script src="cordova.js"></script>
+
 </head>
-<body ng-app="app" class="gardenito platform-android platform-cordova platform-webview">
+<body ng-app="app" class="gardenito platform-android">
   <!-- The nav bar that will be updated as we navigate between views. -->
-  <ion-nav-bar class="bar-stable">
-    <ion-nav-back-button></ion-nav-back-button>
+  <ion-nav-bar class="bar-light">
+    <!--<ion-nav-back-button></ion-nav-back-button>-->
   </ion-nav-bar>
   <!--The views will be rendered in the <ion-nav-view> directive below
       Templates are in the /templates folder (but you could also

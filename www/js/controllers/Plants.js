@@ -1,7 +1,14 @@
-'use strict';
-angular.module('app.controllers')
+(function() {
+  'use strict';
 
-  .controller('PlantsCtrl', function ($scope, PlantaService, $ionicPopup, $stateParams, $state) {
+  angular
+    .module('app.controllers')
+    .controller('PlantsCtrl', function (
+                         $scope,
+                         PlantaService,
+                         $ionicPopup,
+                         $stateParams,
+                         $state) {
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
     // To listen for when this page is active (for example, to refresh data),
@@ -51,7 +58,20 @@ angular.module('app.controllers')
 
       PlantaService.all(null, function (retorno) {
         if (retorno.success) {
-          $scope.plants = retorno.items;
+          // $scope.plants = retorno.items;
+
+          if(retorno.items)
+          {
+            var plantId = retorno.items[0].id;
+            $state.go('tab.plants-detail', { plantId: plantId });
+          }
+          else
+          {
+            $state.go('tab.add', { plantId: plantId });
+          }
+
+
+
         } else {
           $ionicPopup.alert({
             title: 'Erro ao listar as plantas',
@@ -73,3 +93,5 @@ angular.module('app.controllers')
       }
     });
   });
+
+})();

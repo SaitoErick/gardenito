@@ -1,20 +1,5 @@
 /* Empty. Add your own CSS if you like */
 
-.camera-button-wrapper {
-    width: 240px;
-    height: 240px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    background-color: transparent;
-    background: transparent url(../img/camera_preview.png) no-repeat center;
-    background-position: 50% 0px;
-    background-size: 240px 240px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-box-align: center;
-    -webkit-box-pack: center;
-}
-
 .centro {
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -22,11 +7,172 @@
     -webkit-box-pack: center;
 }
 
-#img-camera {
-    width: 240px;
-    height: 240px;
-}
-
 .label-parametros {
     width: 24px;
+}
+
+/* Icon Fonts */
+@charset "UTF-8";
+
+@font-face {
+  font-family: "untitled-font-4";
+  src:url("fonts/untitled-font-4.eot");
+  src:url("fonts/untitled-font-4.eot?#iefix") format("embedded-opentype"),
+    url("fonts/untitled-font-4.woff") format("woff"),
+    url("fonts/untitled-font-4.ttf") format("truetype"),
+    url("fonts/untitled-font-4.svg#untitled-font-4") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "untitled-font-4" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "untitled-font-4" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-solo:before {
+  content: "\61";
+}
+.icon-luminosidade:before {
+  content: "\62";
+}
+.icon-edit:before {
+  content: "\63";
+}
+.icon-cancel:before {
+  content: "\65";
+}
+.icon-camera:before {
+  content: "\66";
+}
+.icon-back-android:before {
+  content: "\67";
+}
+.icon-ar:before {
+  content: "\68";
+}
+.icon-temperatura:before {
+  content: "\64";
+}
+.icon-back-ios:before {
+  content: "\69";
+}
+.icon-chateado:before {
+  content: "\6a";
+}
+.icon-feliz:before {
+  content: "\6b";
+}
+.icon-triste:before {
+  content: "\6c";
+}
+
+.bar .button.button-clear .icon:before, .bar .button.button-clear.icon:before, .bar .button.button-clear.icon-left:before, .bar .button.button-clear.icon-right:before, .bar button.button-clear .icon:before, .bar button.button-clear.icon:before, .bar button.button-clear.icon-left:before, .bar button.button-clear.icon-right:before
+{
+  font-size: 20px;
+  line-height: 30px;
+}
+
+/* Reset enviroment */
+/*.scroll-content.padding
+{
+  padding-top: 0;
+}*/
+
+.bar.bar-stable {
+   border-color: transparent;
+   background-color: #FFF;
+}
+
+.bar.bar-light
+{
+  border-color: transparent;
+}
+
+.bar-stable .button.button-clear, .bar-light .button.button-clear  {
+    color: #898989;
+    font-size: 15px;
+}
+
+/* Plants Details */
+.plant-detail{
+  background-color: #EFFBF0;
+}
+
+.plant-message
+{
+    height: 25px;
+    color: #FFF;
+    line-height: 20px;
+    font-size: 15px;
+    padding: 0 5px;
+    margin: -10px -10px 0;
+}
+
+.plant-message.danger
+{
+    background-color: #E84B5F;
+}
+
+.plant-message.cool
+{
+    background-color: #9FCF6E;
+}
+
+.plant-message .icon:before
+{
+  line-height: 25px;
+  font-size: 15px;
+}
+
+.plant-main-info
+{
+  height: 200px;
+  background-color: #FFF;
+  margin: 0 -10px;
+  padding: 10px;
+}
+
+.plant-photo
+{
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border: 3px solid #E84B5F;
+  -webkit-border-radius: 75px;
+  -moz-border-radius: 75px;
+  border-radius: 75px;
+  padding: 4px;
+  background: #000;
+}
+
+.plant-photo img
+{
+  width: 130px;
+  height: 130px;
+  -webkit-border-radius: 65px;
+  -moz-border-radius: 65px;
+  border-radius: 65px;
 }

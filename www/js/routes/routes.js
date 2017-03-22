@@ -27,6 +27,16 @@ angular.module('app.routes', [])
     }
   })
 
+  // .state('home', {
+  //   url: '/home',
+  //   views: {
+  //     'tab-home': {
+  //       templateUrl: 'templates/home.html',
+  //       controller: 'HomeCtrl'
+  //     }
+  //   }
+  // })
+
   .state('tab.plants', {
       url: '/plants',
       params: {reload: null},
@@ -39,6 +49,7 @@ angular.module('app.routes', [])
     })
     .state('tab.plants-detail', {
       url: '/plants/:plantId',
+      params: {plantId: null},
       views: {
         'tab-plants': {
           templateUrl: 'templates/plants-detail.html',

@@ -5,6 +5,8 @@ var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
+var sassGlob = require('gulp-sass-glob');
+var spritesmith = require('gulp.spritesmith');
 var sh = require('shelljs');
 
 var paths = {
@@ -15,6 +17,7 @@ gulp.task('default', ['sass']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
+    .pipe(sassGlob())
     .pipe(sass())
     .on('error', sass.logError)
     .pipe(gulp.dest('./www/css/'))
@@ -28,6 +31,17 @@ gulp.task('sass', function(done) {
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
+});
+
+gulp.task('sprite', function () {
+  var spriteData = gulp.src('./www/img/sprite/*.png')
+  .pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: '../../scss/gardenito/_sprite.scss',
+    imgPath : './../img/sprite.png',
+    padding: 5
+  }));
+  return spriteData.pipe(gulp.dest('./www/img'));
 });
 
 gulp.task('install', ['git-check'], function() {
